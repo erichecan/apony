@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APONY INC. 小马物流 - 专业海外仓服务</title>
+    <style>
+        /* 全局样式 - 2025-01-27 14:40:15 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* 导航栏样式 */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #0066cc;
+        }
+        
+        .logo-text span {
+            color: #333;
+            font-size: 1.2rem;
+            margin-left: 0.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #0066cc;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #0066cc;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* 语言切换按钮 */
+        .language-switch {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: 2rem;
+        }
+        
+        /* 移动端菜单按钮 */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            background: none;
+            border: none;
+        }
+        
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #0066cc;
+            background: transparent;
+            color: #0066cc;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .lang-btn.active {
+            background: #0066cc;
+            color: #fff;
+        }
+        
+        .lang-btn:hover {
+            background: #0066cc;
+            color: #fff;
+        }
+        
+        /* Banner轮播区域 */
+        .banner {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .banner-slides {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .banner-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        /* 第一张轮播图 - 海运集装箱 */
+        .banner-slide:nth-child(1) {
+            background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&h=1080&fit=crop');
+        }
+        
+        /* 第二张轮播图 - 仓库操作 */
+        .banner-slide:nth-child(2) {
+            background-image: url('https://images.unsplash.com/photo-1553413077-190dd305871c?w=1920&h=1080&fit=crop');
+        }
+        
+        /* 第三张轮播图 - 轮船 */
+        .banner-slide:nth-child(3) {
+            background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1920&h=1080&fit=crop');
+        }
+        
+        .banner-slide.active {
+            opacity: 1;
+        }
+        
+        .banner-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.8) 0%, rgba(0, 85, 170, 0.8) 100%);
+        }
+        
+        /* 移动端优化渐变 */
+        @media (max-width: 768px) {
+            .banner-slide::before {
+                background: linear-gradient(135deg, rgba(0, 102, 204, 0.9) 0%, rgba(0, 85, 170, 0.9) 100%);
+            }
+        }
+        
+        .banner-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            max-width: 900px;
+            text-align: center;
+            color: #fff;
+            width: 100%;
+            padding: 0 2rem;
+        }
+        
+        .banner h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .banner h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .banner p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            line-height: 1.8;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: #fff;
+            color: #0066cc;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* 轮播指示器 */
+        .banner-indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 3;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .indicator.active {
+            background-color: #fff;
+            transform: scale(1.2);
+        }
+        
+        /* 轮播控制按钮 */
+        .banner-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            z-index: 3;
+        }
+        
+        .banner-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .banner-control:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .banner-control.prev {
+            left: 30px;
+        }
+        
+        .banner-control.next {
+            right: 30px;
+        }
+        
+        /* 服务介绍区域 */
+        .services {
+            padding: 6rem 2rem;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background-color: #fff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #0066cc, #0055aa);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            font-size: 2rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        /* 公司优势区域 */
+        .advantages {
+            padding: 6rem 2rem;
+            background-color: #fff;
+        }
+        
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .advantage-item {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .advantage-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .advantage-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* 联系信息区域 */
+        .contact-info {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #0066cc 0%, #0055aa 100%);
+            color: #fff;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .contact-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 3rem 2rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #0066cc;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .footer-section a:hover {
+            color: #0066cc;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+        
+        /* 响应式设计 - 增强移动端支持 */
+        @media (max-width: 1024px) {
+            .container {
+                max-width: 95%;
+            }
+            
+            .service-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+            
+            .advantage-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+        
+        /* 移动端图片优化 */
+        @media (max-width: 768px) {
+            /* 第一张轮播图 - 移动端海运图片 */
+            .banner-slide:nth-child(1) {
+                background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop');
+            }
+            
+            /* 第二张轮播图 - 移动端仓库图片 */
+            .banner-slide:nth-child(2) {
+                background-image: url('https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&h=600&fit=crop');
+            }
+            
+            /* 第三张轮播图 - 移动端轮船图片 */
+            .banner-slide:nth-child(3) {
+                background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&h=600&fit=crop');
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* 小屏幕移动端图片 */
+            .banner-slide:nth-child(1) {
+                background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop');
+            }
+            
+            .banner-slide:nth-child(2) {
+                background-image: url('https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&h=400&fit=crop');
+            }
+            
+            .banner-slide:nth-child(3) {
+                background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&h=400&fit=crop');
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .logo img {
+                height: 40px;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .logo-text span {
+                font-size: 1rem;
+            }
+            
+            .banner {
+                height: 80vh;
+                padding-top: 70px;
+            }
+            
+            .banner h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+            
+            .banner h2 {
+                font-size: 1.3rem;
+                margin-bottom: 0.8rem;
+            }
+            
+            .banner p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+                line-height: 1.5;
+            }
+            
+            .banner-content {
+                padding: 0 1rem;
+                top: 45%;
+                max-width: 95%;
+            }
+            
+            .banner-control {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .banner-control.prev {
+                left: 15px;
+            }
+            
+            .banner-control.next {
+                right: 15px;
+            }
+            
+            .banner-indicators {
+                bottom: 20px;
+            }
+            
+            .indicator {
+                width: 10px;
+                height: 10px;
+            }
+            
+            .service-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .advantage-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .services, .advantages {
+                padding: 4rem 1rem;
+            }
+            
+            .contact-info {
+                padding: 3rem 1rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title p {
+                font-size: 1.1rem;
+            }
+            
+            .service-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .advantage-item {
+                padding: 1.5rem;
+            }
+            
+            .contact-item {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .banner {
+                height: 70vh;
+                padding-top: 60px;
+            }
+            
+            .banner h1 {
+                font-size: 1.8rem;
+                margin-bottom: 0.8rem;
+            }
+            
+            .banner h2 {
+                font-size: 1.1rem;
+                margin-bottom: 0.6rem;
+            }
+            
+            .banner p {
+                font-size: 0.9rem;
+                margin-bottom: 1.2rem;
+                line-height: 1.4;
+            }
+            
+            .banner-content {
+                top: 40%;
+                padding: 0 0.8rem;
+                max-width: 100%;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title p {
+                font-size: 1rem;
+            }
+            
+            .service-card {
+                padding: 1.5rem 1rem;
+            }
+            
+            .advantage-item {
+                padding: 1rem;
+            }
+            
+            .contact-item {
+                padding: 1rem;
+            }
+            
+            .services, .advantages {
+                padding: 3rem 1rem;
+            }
+            
+            .contact-info {
+                padding: 2rem 1rem;
+            }
+            
+            .footer {
+                padding: 2rem 1rem 1rem;
+            }
+            
+            .footer-content {
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .banner {
+                height: 60vh;
+            }
+            
+            .banner h1 {
+                font-size: 1.5rem;
+            }
+            
+            .banner h2 {
+                font-size: 1rem;
+            }
+            
+            .banner p {
+                font-size: 0.8rem;
+            }
+            
+            .banner-content {
+                top: 35%;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+            
+            .service-card {
+                padding: 1.2rem 0.8rem;
+            }
+            
+            .advantage-item {
+                padding: 0.8rem;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 - 2025-01-27 14:40:15 -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="APONY INC. Logo">
+                <div class="logo-text">
+                    APONY INC. <span>小马物流</span>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="#home">首页</a>
+                <a href="#services">服务</a>
+                <a href="#advantages">优势</a>
+                <a href="#contact">联系我们</a>
+                <div class="language-switch">
+                    <button class="lang-btn active" onclick="changeLanguage('zh')">中文</button>
+                    <button class="lang-btn" onclick="changeLanguage('en')">English</button>
+                </div>
+            </div>
+            
+            <!-- 移动端菜单按钮 -->
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Banner轮播区域 -->
+    <section id="home" class="banner">
+        <div class="banner-slides">
+            <div class="banner-slide active">
+                <div class="banner-content">
+                    <h1>仓配一体化</h1>
+                    <h2>Warehousing and distribution integration</h2>
+                    <p>APONY INC.(小马物流)为您提供专业的海外仓服务，包括海运柜货代、商业仓储发货、退货代收代发、商业提送货、亚马逊卡派、搬运服务等全方位物流解决方案。</p>
+                    <a href="#contact" class="btn">立即咨询</a>
+                </div>
+            </div>
+            <div class="banner-slide">
+                <div class="banner-content">
+                    <h1>专业海外仓</h1>
+                    <h2>Professional Overseas Warehouse</h2>
+                    <p>APONY INC.提供专业的海外仓服务，包括海运柜货代、商业仓储发货、退货代收代发、商业提送货、亚马逊卡派、搬运服务等全方位物流解决方案。</p>
+                    <a href="#contact" class="btn">立即咨询</a>
+                </div>
+            </div>
+            <div class="banner-slide">
+                <div class="banner-content">
+                    <h1>高效物流</h1>
+                    <h2>Efficient Logistics Solutions</h2>
+                    <p>APONY INC.提供高效、可靠的物流解决方案，包括海运柜货代、商业仓储发货、退货代收代发、商业提送货、亚马逊卡派、搬运服务等。</p>
+                    <a href="#contact" class="btn">立即咨询</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 轮播控制按钮 -->
+        <div class="banner-controls">
+            <button class="banner-control prev" onclick="changeSlide(-1)">‹</button>
+            <button class="banner-control next" onclick="changeSlide(1)">›</button>
+        </div>
+        
+        <!-- 轮播指示器 -->
+        <div class="banner-indicators">
+            <span class="indicator active" onclick="currentSlide(1)"></span>
+            <span class="indicator" onclick="currentSlide(2)"></span>
+            <span class="indicator" onclick="currentSlide(3)"></span>
+        </div>
+    </section>
+
+    <!-- 服务介绍区域 -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>我们的服务</h2>
+                <p>What can we provide?</p>
+            </div>
+            <div class="service-grid">
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">🚢</div>
+                    <h3>海运柜货代</h3>
+                    <p>进口清关 → 预约提柜 → 卸货分拣 → 清点打板 → 分类仓储 → 预约派送</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">🏭</div>
+                    <h3>商业仓储发货</h3>
+                    <p>预约进仓 → 收货清点 → 打板上架 → 接单捡货 → 包装贴标 → 发货派送</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">📦</div>
+                    <h3>退货代收代发</h3>
+                    <p>预约收货 → 清点检验 → 拆包换包 → 贴标换标 → 仓储上架 → 发货派送</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">🚛</div>
+                    <h3>商业提送货</h3>
+                    <p>熟悉各大仓库 → 无隐藏报价预约提货 → 装车清点 → 通知收货人 → 送达签收</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">📱</div>
+                    <h3>亚马逊卡派</h3>
+                    <p>免费预约 → 一板起运 → 预约FBA → 预约提货 → 装车清点 → 送达签单</p>
+                </div>
+                <div class="service-card fade-in-up">
+                    <div class="service-icon">🏠</div>
+                    <h3>搬运服务</h3>
+                    <p>商业民宅搬运 → 评估报价无隐藏 → 配备合适车辆人员 → 安全无损搬运</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 公司优势区域 -->
+    <section id="advantages" class="advantages">
+        <div class="container">
+            <div class="section-title">
+                <h2>APONY INC.(小马物流)有什么？</h2>
+                <p>What we do have?</p>
+            </div>
+            <div class="advantage-grid">
+                <div class="advantage-item">
+                    <h4>公司保险</h4>
+                    <p>商业责任保险，仓库保险，车辆保险，车上货物保险，过失意外错误保险。</p>
+                </div>
+                <div class="advantage-item">
+                    <h4>仓储条件</h4>
+                    <p>自营仓库，总面积6万余尺，24小时内外监控，恒温湿无异味，近高速公路。</p>
+                </div>
+                <div class="advantage-item">
+                    <h4>派送车辆</h4>
+                    <p>自营53尺Trailer，26/28尺直卡，14尺VAN，Ramp，Tailgate，E-Pallet Jack。</p>
+                </div>
+                <div class="advantage-item">
+                    <h4>从业人员</h4>
+                    <p>耐心客服，专业库管、装卸员工，大神调度、3年以上无事故AZ、DZ老司机。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系信息区域 -->
+    <section id="contact" class="contact-info">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: #fff;">联系我们</h2>
+                <p style="color: #fff; opacity: 0.9;">Contact us</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4>微信</h4>
+                    <p>A4166660888</p>
+                    <img src="wechat.png" alt="微信二维码" style="width: 120px; height: auto; max-height: 120px; margin-top: 1rem; border-radius: 8px; object-fit: contain;">
+                </div>
+                <div class="contact-item">
+                    <h4>邮箱</h4>
+                    <p>op@aponyinc.com</p>
+                </div>
+                <div class="contact-item">
+                    <h4>地址</h4>
+                    <p>1399 Kennedy Rd, Unit 7&10, Scarborough, ON, CA M1P 2L6</p>
+                </div>
+                <div class="contact-item">
+                    <h4>电话</h4>
+                    <p>免费电话: 866-982-6289<br>直线电话: 647-250-2085</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>特色服务</h4>
+                <p>木箱木架包装</p>
+                <p>家具及家电配送安装</p>
+                <p>超大件商品配送</p>
+                <p>集运分拨发货</p>
+            </div>
+            <div class="footer-section">
+                <h4>服务咨询</h4>
+                <p>欢迎长期合作</p>
+                <p>专业团队为您服务</p>
+                <p>24小时客服支持</p>
+            </div>
+            <div class="footer-section">
+                <h4>快速链接</h4>
+                <a href="#home">首页</a>
+                <a href="#services">服务</a>
+                <a href="#advantages">优势</a>
+                <a href="#contact">联系我们</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 APONY INC. 小马物流. 保留所有权利.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript代码 - 2025-01-27 14:40:15 -->
+    <script>
+        // 轮播图功能
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.banner-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const totalSlides = slides.length;
+        
+        function showSlide(index) {
+            // 隐藏所有幻灯片
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            // 显示当前幻灯片
+            slides[index].classList.add('active');
+            indicators[index].classList.add('active');
+        }
+        
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+            showSlide(currentSlideIndex);
+        }
+        
+        function prevSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlideIndex);
+        }
+        
+        function changeSlide(direction) {
+            if (direction > 0) {
+                nextSlide();
+            } else {
+                prevSlide();
+            }
+        }
+        
+        function currentSlide(index) {
+            currentSlideIndex = index - 1;
+            showSlide(currentSlideIndex);
+        }
+        
+        // 自动轮播
+        setInterval(nextSlide, 5000);
+        
+        // 触摸滑动支持（移动端）
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        const banner = document.querySelector('.banner');
+        
+        banner.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        banner.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // 向左滑动，下一张
+                    nextSlide();
+                } else {
+                    // 向右滑动，上一张
+                    prevSlide();
+                }
+            }
+        }
+        
+        // 平滑滚动效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.backgroundColor = '#fff';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有需要动画的元素
+        document.querySelectorAll('.service-card, .advantage-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease-out';
+            observer.observe(el);
+        });
+
+        // 移动端菜单切换
+        function toggleMobileMenu() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenuBtn.classList.toggle('active');
+            
+            if (mobileMenuBtn.classList.contains('active')) {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.backgroundColor = '#fff';
+                navLinks.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                navLinks.style.padding = '1rem';
+                navLinks.style.gap = '1rem';
+                navLinks.style.zIndex = '1000';
+            } else {
+                navLinks.style.display = 'none';
+            }
+        }
+        
+        // 语言切换功能
+        function changeLanguage(lang) {
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            // 更新所有轮播图片上的文字内容
+            const bannerContents = document.querySelectorAll('.banner-slide .banner-content');
+            
+            // 服务区域
+            const serviceTitle = document.querySelector('#services .section-title h2');
+            const serviceSubtitle = document.querySelector('#services .section-title p');
+            const serviceCards = document.querySelectorAll('#services .service-card h3');
+            const serviceDescriptions = document.querySelectorAll('#services .service-card p');
+            
+            // 公司优势区域
+            const advantageTitle = document.querySelector('#advantages .section-title h2');
+            const advantageSubtitle = document.querySelector('#advantages .section-title p');
+            const advantageItems = document.querySelectorAll('#advantages .advantage-item h4');
+            const advantageDescriptions = document.querySelectorAll('#advantages .advantage-item p');
+            
+            // 联系信息区域
+            const contactTitle = document.querySelector('#contact .section-title h2');
+            const contactSubtitle = document.querySelector('#contact .section-title p');
+            const contactHeaders = document.querySelectorAll('#contact .contact-item h4');
+            
+            // 页脚区域
+            const footerSections = document.querySelectorAll('.footer-section h4');
+            const footerContent = document.querySelectorAll('.footer-section p, .footer-section a');
+            
+            // 更新按钮状态
+            const langBtns = document.querySelectorAll('.lang-btn');
+            langBtns.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (lang === 'zh') {
+                // 切换到中文
+                // 导航菜单
+                navLinks[0].textContent = '首页';
+                navLinks[1].textContent = '服务';
+                navLinks[2].textContent = '优势';
+                navLinks[3].textContent = '联系我们';
+                
+                // 轮播图片文字内容 - 第一张
+                bannerContents[0].querySelector('h1').textContent = '仓配一体化';
+                bannerContents[0].querySelector('h2').textContent = 'Warehousing and distribution integration';
+                bannerContents[0].querySelector('p').textContent = 'APONY INC.(小马物流)为您提供专业的海外仓服务，包括海运柜货代、商业仓储发货、退货代收代发、商业提送货、亚马逊卡派、搬运服务等全方位物流解决方案。';
+                bannerContents[0].querySelector('.btn').textContent = '立即咨询';
+                
+                // 轮播图片文字内容 - 第二张
+                bannerContents[1].querySelector('h1').textContent = '专业海外仓';
+                bannerContents[1].querySelector('h2').textContent = 'Professional Overseas Warehouse';
+                bannerContents[1].querySelector('p').textContent = 'APONY INC.提供专业的海外仓服务，包括海运柜货代、商业仓储发货、退货代收代发、商业提送货、亚马逊卡派、搬运服务等全方位物流解决方案。';
+                bannerContents[1].querySelector('.btn').textContent = '立即咨询';
+                
+                // 轮播图片文字内容 - 第三张
+                bannerContents[2].querySelector('h1').textContent = '高效物流';
+                bannerContents[2].querySelector('h2').textContent = 'Efficient Logistics Solutions';
+                bannerContents[2].querySelector('p').textContent = 'APONY INC.提供高效、可靠的物流解决方案，包括海运柜货代、商业仓储发货、退货代收代发、商业提送货、亚马逊卡派、搬运服务等。';
+                bannerContents[2].querySelector('.btn').textContent = '立即咨询';
+                
+                // 服务区域
+                serviceTitle.textContent = '我们的服务';
+                serviceSubtitle.textContent = 'What can we provide?';
+                serviceCards[0].textContent = '海运柜货代';
+                serviceCards[1].textContent = '商业仓储发货';
+                serviceCards[2].textContent = '退货代收代发';
+                serviceCards[3].textContent = '商业提送货';
+                serviceCards[4].textContent = '亚马逊卡派';
+                serviceCards[5].textContent = '搬运服务';
+                
+                serviceDescriptions[0].textContent = '进口清关 → 预约提柜 → 卸货分拣 → 清点打板 → 分类仓储 → 预约派送';
+                serviceDescriptions[1].textContent = '预约进仓 → 收货清点 → 打板上架 → 接单捡货 → 包装贴标 → 发货派送';
+                serviceDescriptions[2].textContent = '预约收货 → 清点检验 → 拆包换包 → 贴标换标 → 仓储上架 → 发货派送';
+                serviceDescriptions[3].textContent = '熟悉各大仓库 → 无隐藏报价预约提货 → 装车清点 → 通知收货人 → 送达签收';
+                serviceDescriptions[4].textContent = '免费预约 → 一板起运 → 预约FBA → 预约提货 → 装车清点 → 送达签单';
+                serviceDescriptions[5].textContent = '商业民宅搬运 → 评估报价无隐藏 → 配备合适车辆人员 → 安全无损搬运';
+                
+                // 公司优势区域
+                advantageTitle.textContent = 'APONY INC.(小马物流)有什么？';
+                advantageSubtitle.textContent = 'What we do have?';
+                advantageItems[0].textContent = '公司保险';
+                advantageItems[1].textContent = '仓储条件';
+                advantageItems[2].textContent = '派送车辆';
+                advantageItems[3].textContent = '从业人员';
+                
+                advantageDescriptions[0].textContent = '商业责任保险，仓库保险，车辆保险，车上货物保险，过失意外错误保险。';
+                advantageDescriptions[1].textContent = '自营仓库，总面积6万余尺，24小时内外监控，恒温湿无异味，近高速公路。';
+                advantageDescriptions[2].textContent = '自营53尺Trailer，26/28尺直卡，14尺VAN，Ramp，Tailgate，E-Pallet Jack。';
+                advantageDescriptions[3].textContent = '耐心客服，专业库管、装卸员工，大神调度、3年以上无事故AZ、DZ老司机。';
+                
+                // 联系信息区域
+                contactTitle.textContent = '联系我们';
+                contactSubtitle.textContent = 'Contact us';
+                contactHeaders[0].textContent = '微信';
+                contactHeaders[1].textContent = '邮箱';
+                contactHeaders[2].textContent = '地址';
+                contactHeaders[3].textContent = '电话';
+                
+                // 页脚区域
+                footerSections[0].textContent = '特色服务';
+                footerSections[1].textContent = '服务咨询';
+                footerSections[2].textContent = '快速链接';
+                
+                // 页脚内容
+                const footerContentArray = [
+                    ['木箱木架包装', '家具及家电配送安装', '超大件商品配送', '集运分拨发货'],
+                    ['欢迎长期合作', '专业团队为您服务', '24小时客服支持'],
+                    ['首页', '服务', '优势', '联系我们']
+                ];
+                
+                footerContent.forEach((item, index) => {
+                    if (index < 4) item.textContent = footerContentArray[0][index];
+                    else if (index < 7) item.textContent = footerContentArray[1][index - 4];
+                    else if (index < 11) item.textContent = footerContentArray[2][index - 7];
+                });
+                
+            } else {
+                // 切换到英文
+                // 导航菜单
+                navLinks[0].textContent = 'Home';
+                navLinks[1].textContent = 'Services';
+                navLinks[2].textContent = 'Advantages';
+                navLinks[3].textContent = 'Contact Us';
+                
+                // 轮播图片文字内容 - 第一张
+                bannerContents[0].querySelector('h1').textContent = 'Warehousing & Distribution';
+                bannerContents[0].querySelector('h2').textContent = 'Professional Overseas Warehouse Services';
+                bannerContents[0].querySelector('p').textContent = 'APONY INC. provides comprehensive overseas warehouse solutions including sea freight forwarding, commercial warehousing, return handling, pickup & delivery, Amazon FBA delivery, and moving services.';
+                bannerContents[0].querySelector('.btn').textContent = 'Contact Us';
+                
+                // 轮播图片文字内容 - 第二张
+                bannerContents[1].querySelector('h1').textContent = 'Professional Warehouse';
+                bannerContents[1].querySelector('h2').textContent = 'Overseas Storage Solutions';
+                bannerContents[1].querySelector('p').textContent = 'APONY INC. offers professional overseas warehouse services including sea freight forwarding, commercial warehousing, return handling, pickup & delivery, Amazon FBA delivery, and moving services.';
+                bannerContents[1].querySelector('.btn').textContent = 'Contact Us';
+                
+                // 轮播图片文字内容 - 第三张
+                bannerContents[2].querySelector('h1').textContent = 'Efficient Logistics';
+                bannerContents[2].querySelector('h2').textContent = 'Reliable Supply Chain';
+                bannerContents[2].querySelector('p').textContent = 'APONY INC. provides efficient and reliable logistics solutions including sea freight forwarding, commercial warehousing, return handling, pickup & delivery, Amazon FBA delivery, and moving services.';
+                bannerContents[2].querySelector('.btn').textContent = 'Contact Us';
+                
+                // 服务区域
+                serviceTitle.textContent = 'Our Services';
+                serviceSubtitle.textContent = 'What can we provide?';
+                serviceCards[0].textContent = 'Sea Freight Forwarding';
+                serviceCards[1].textContent = 'Commercial Warehousing';
+                serviceCards[2].textContent = 'Return Handling';
+                serviceCards[3].textContent = 'Pickup & Delivery';
+                serviceCards[4].textContent = 'Amazon FBA Delivery';
+                serviceCards[5].textContent = 'Moving Services';
+                
+                serviceDescriptions[0].textContent = 'Import customs clearance → Container pickup → Unloading & sorting → Counting & palletizing → Categorized warehousing → Scheduled delivery';
+                serviceDescriptions[1].textContent = 'Inbound appointment → Receiving & counting → Palletizing & shelving → Order picking → Packing & labeling → Shipping & delivery';
+                serviceDescriptions[2].textContent = 'Receiving appointment → Inspection & counting → Repacking → Relabeling → Warehousing & shelving → Reshipping';
+                serviceDescriptions[3].textContent = 'Familiar with major warehouses → Transparent pickup appointments → Loading & counting → Recipient notification → Delivery & signature';
+                serviceDescriptions[4].textContent = 'Free booking → Minimum one pallet → FBA delivery appointment → Pickup scheduling → Loading & counting → Delivery & signed receipt';
+                serviceDescriptions[5].textContent = 'Residential and commercial moving → On-site evaluation with transparent pricing → Proper vehicle and manpower allocation → Safe, damage-free moving';
+                
+                // 公司优势区域
+                advantageTitle.textContent = 'What does APONY INC. have?';
+                advantageSubtitle.textContent = 'What we do have?';
+                advantageItems[0].textContent = 'Company Insurance';
+                advantageItems[1].textContent = 'Warehouse Conditions';
+                advantageItems[2].textContent = 'Delivery Fleet';
+                advantageItems[3].textContent = 'Professional Staff';
+                
+                advantageDescriptions[0].textContent = 'Commercial General Liability Insurance, Warehouse Insurance, Vehicle Insurance, Cargo Insurance, Errors and Omissions Insurance.';
+                advantageDescriptions[1].textContent = 'Self-operated warehouses with total area over 60,000 sq. ft., 24/7 surveillance, climate-controlled environment, convenient highway access.';
+                advantageDescriptions[2].textContent = 'Self-owned 53 ft trailers, 26/28 ft straight trucks, 14 ft vans, equipped with ramp, tailgate, and electric pallet jacks.';
+                advantageDescriptions[3].textContent = 'Patient customer service, professional warehouse managers and staff, experienced dispatchers, licensed drivers with over 3 years accident-free records.';
+                
+                // 联系信息区域
+                contactTitle.textContent = 'Contact Us';
+                contactSubtitle.textContent = 'Get in touch with us';
+                contactHeaders[0].textContent = 'WeChat';
+                contactHeaders[1].textContent = 'Email';
+                contactHeaders[2].textContent = 'Address';
+                contactHeaders[3].textContent = 'Phone';
+                
+                // 页脚区域
+                footerSections[0].textContent = 'Specialty Services';
+                footerSections[1].textContent = 'Service Consultation';
+                footerSections[2].textContent = 'Quick Links';
+                
+                // 页脚内容
+                const footerContentArray = [
+                    ['Wooden crate packaging', 'Furniture & appliance delivery', 'Oversized item delivery', 'Consolidation services'],
+                    ['Long-term cooperation welcome', 'Professional team at your service', '24/7 customer support'],
+                    ['Home', 'Services', 'Advantages', 'Contact Us']
+                ];
+                
+                footerContent.forEach((item, index) => {
+                    if (index < 4) item.textContent = footerContentArray[0][index];
+                    else if (index < 7) item.textContent = footerContentArray[1][index - 4];
+                    else if (index < 11) item.textContent = footerContentArray[2][index - 7];
+                });
+            }
+        }
+    </script>
+</body>
+</html>

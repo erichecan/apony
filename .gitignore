@@ -1,0 +1,25 @@
+# macOS系统文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 截图文件（测试用）
+page_screenshot*.png
+
+# 编辑器文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 日志文件
+*.log
+
+# 临时文件
+*.tmp
+*.temp

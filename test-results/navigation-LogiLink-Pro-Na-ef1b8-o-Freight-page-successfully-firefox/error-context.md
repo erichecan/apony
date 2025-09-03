@@ -1,0 +1,180 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - heading "LogiLink Pro" [level=4] [ref=e7]
+      - menu [ref=e8]:
+        - menuitem "dashboard Dashboard" [ref=e9] [cursor=pointer]:
+          - img "dashboard" [ref=e10] [cursor=pointer]:
+            - img [ref=e11] [cursor=pointer]
+          - generic [ref=e13] [cursor=pointer]: Dashboard
+        - menuitem "car Transportation (TMS)" [ref=e14] [cursor=pointer]:
+          - img "car" [ref=e15] [cursor=pointer]:
+            - img [ref=e16] [cursor=pointer]
+          - generic [ref=e18] [cursor=pointer]: Transportation (TMS)
+        - menuitem "shop Warehousing (WMS)" [ref=e19] [cursor=pointer]:
+          - img "shop" [ref=e20] [cursor=pointer]:
+            - img [ref=e21] [cursor=pointer]
+          - generic [ref=e23] [cursor=pointer]: Warehousing (WMS)
+        - menuitem "global Freight Forwarding" [ref=e24] [cursor=pointer]:
+          - img "global" [ref=e25] [cursor=pointer]:
+            - img [ref=e26] [cursor=pointer]
+          - generic [ref=e28] [cursor=pointer]: Freight Forwarding
+        - menuitem "team Fleet Management" [ref=e29] [cursor=pointer]:
+          - img "team" [ref=e30] [cursor=pointer]:
+            - img [ref=e31] [cursor=pointer]
+          - generic [ref=e33] [cursor=pointer]: Fleet Management
+        - menuitem "contacts Customer Relationship Management (CRM)" [ref=e34] [cursor=pointer]:
+          - img "contacts" [ref=e35] [cursor=pointer]:
+            - img [ref=e36] [cursor=pointer]
+          - generic [ref=e38] [cursor=pointer]: Customer Relationship Management (CRM)
+        - menuitem "dollar-circle Billing & Financial Management" [ref=e39] [cursor=pointer]:
+          - img "dollar-circle" [ref=e40] [cursor=pointer]:
+            - img [ref=e41] [cursor=pointer]
+          - generic [ref=e43] [cursor=pointer]: Billing & Financial Management
+        - menuitem "setting System Settings" [ref=e44] [cursor=pointer]:
+          - img "setting" [ref=e45] [cursor=pointer]:
+            - img [ref=e46] [cursor=pointer]
+          - generic [ref=e48] [cursor=pointer]: System Settings
+    - img "left" [ref=e50] [cursor=pointer]:
+      - img [ref=e51] [cursor=pointer]
+  - generic [ref=e53]:
+    - banner [ref=e54]:
+      - heading "Welcome Back, CEO!" [level=3] [ref=e55]
+      - generic [ref=e56]:
+        - generic [ref=e58]:
+          - img "bell" [ref=e60] [cursor=pointer]:
+            - img [ref=e61] [cursor=pointer]
+          - superscript [ref=e63]:
+            - generic [ref=e66]: "5"
+        - img "user" [ref=e69] [cursor=pointer]:
+          - img [ref=e70] [cursor=pointer]
+    - main [ref=e72]:
+      - generic [ref=e73]:
+        - heading "Multi-Warehouse Command Center" [level=2] [ref=e74]
+        - generic [ref=e77]:
+          - generic [ref=e78]: "Warehouse View:"
+          - generic [ref=e79]:
+            - generic [ref=e80] [cursor=pointer]:
+              - generic [ref=e81] [cursor=pointer]:
+                - radio "All" [checked]
+              - generic [ref=e82] [cursor=pointer]: All
+            - generic [ref=e83] [cursor=pointer]:
+              - generic [ref=e84] [cursor=pointer]:
+                - radio "Warehouse A (Toronto)"
+              - generic [ref=e85] [cursor=pointer]: Warehouse A (Toronto)
+            - generic [ref=e86] [cursor=pointer]:
+              - generic [ref=e87] [cursor=pointer]:
+                - radio "Warehouse B (Vancouver)"
+              - generic [ref=e88] [cursor=pointer]: Warehouse B (Vancouver)
+            - generic [ref=e89] [cursor=pointer]:
+              - generic [ref=e90] [cursor=pointer]:
+                - radio "Warehouse C (Calgary)"
+              - generic [ref=e91] [cursor=pointer]: Warehouse C (Calgary)
+            - generic [ref=e92] [cursor=pointer]:
+              - generic [ref=e93] [cursor=pointer]:
+                - radio "Warehouse D (Montreal)"
+              - generic [ref=e94] [cursor=pointer]: Warehouse D (Montreal)
+        - generic [ref=e95]:
+          - generic [ref=e99]:
+            - generic [ref=e100]: Total Inventory Value (All Warehouses)
+            - generic [ref=e101]:
+              - img "dollar" [ref=e103]:
+                - img [ref=e104]
+              - generic [ref=e107]: 1,250,800
+              - generic [ref=e108]: $
+          - generic [ref=e112]:
+            - generic [ref=e113]: Total Available Capacity
+            - generic [ref=e114]:
+              - img "team" [ref=e116]:
+                - img [ref=e117]
+              - generic [ref=e120]: "75"
+              - generic [ref=e121]: "%"
+          - generic [ref=e125]:
+            - generic [ref=e126]: Pending Orders (Today)
+            - generic [ref=e127]:
+              - img "shopping-cart" [ref=e129]:
+                - img [ref=e130]
+              - generic [ref=e133]: "89"
+          - generic [ref=e137]:
+            - generic [ref=e138]: Shipments Dispatched (Today)
+            - generic [ref=e139]:
+              - img "car" [ref=e141]:
+                - img [ref=e142]
+              - generic [ref=e145]: "152"
+        - generic [ref=e146]:
+          - generic [ref=e149]: Warehouse Live Status
+          - table [ref=e157]:
+            - rowgroup [ref=e165]:
+              - row "Warehouse Name Capacity Usage Inbound Tasks Outbound Tasks Worker Status Alerts" [ref=e166]:
+                - columnheader "Warehouse Name" [ref=e167]
+                - columnheader "Capacity Usage" [ref=e168]
+                - columnheader "Inbound Tasks" [ref=e169]
+                - columnheader "Outbound Tasks" [ref=e170]
+                - columnheader "Worker Status" [ref=e171]
+                - columnheader "Alerts" [ref=e172]
+            - rowgroup [ref=e173]:
+              - row "Warehouse A (Toronto) 85 5 22 3 Active / 1 Idle High Volume" [ref=e174]:
+                - cell "Warehouse A (Toronto)" [ref=e175]
+                - cell "85" [ref=e176]:
+                  - progressbar [ref=e177]
+                - cell "5" [ref=e182]
+                - cell "22" [ref=e183]
+                - cell "3 Active / 1 Idle" [ref=e184]
+                - cell "High Volume" [ref=e185]:
+                  - generic [ref=e186]: High Volume
+              - row "Warehouse B (Vancouver) 72 3 18 2 Active / 2 Idle Normal" [ref=e187]:
+                - cell "Warehouse B (Vancouver)" [ref=e188]
+                - cell "72" [ref=e189]:
+                  - progressbar [ref=e190]
+                - cell "3" [ref=e195]
+                - cell "18" [ref=e196]
+                - cell "2 Active / 2 Idle" [ref=e197]
+                - cell "Normal" [ref=e198]:
+                  - generic [ref=e199]: Normal
+              - row "Warehouse C (Calgary) 91 8 15 4 Active / 0 Idle Low Space" [ref=e200]:
+                - cell "Warehouse C (Calgary)" [ref=e201]
+                - cell "91" [ref=e202]:
+                  - progressbar [ref=e203]:
+                    - img "close-circle" [ref=e208]:
+                      - img [ref=e209]
+                - cell "8" [ref=e211]
+                - cell "15" [ref=e212]
+                - cell "4 Active / 0 Idle" [ref=e213]
+                - cell "Low Space" [ref=e214]:
+                  - generic [ref=e215]: Low Space
+              - row "Warehouse D (Montreal) 68 2 12 2 Active / 1 Idle Normal" [ref=e216]:
+                - cell "Warehouse D (Montreal)" [ref=e217]
+                - cell "68" [ref=e218]:
+                  - progressbar [ref=e219]
+                - cell "2" [ref=e224]
+                - cell "12" [ref=e225]
+                - cell "2 Active / 1 Idle" [ref=e226]
+                - cell "Normal" [ref=e227]:
+                  - generic [ref=e228]: Normal
+        - generic [ref=e229]:
+          - generic [ref=e234]: Order Status Distribution
+          - generic [ref=e242]: Multi-Warehouse Capacity Overview
+        - generic [ref=e252]: Weekly Revenue Trend
+        - generic [ref=e258]:
+          - generic [ref=e261]: Quick Actions
+          - generic [ref=e263]:
+            - generic [ref=e266] [cursor=pointer]:
+              - img "shopping-cart" [ref=e267] [cursor=pointer]:
+                - img [ref=e268] [cursor=pointer]
+              - generic [ref=e270] [cursor=pointer]: New Order
+            - generic [ref=e273] [cursor=pointer]:
+              - img "car" [ref=e274] [cursor=pointer]:
+                - img [ref=e275] [cursor=pointer]
+              - generic [ref=e277] [cursor=pointer]: Dispatch
+            - generic [ref=e280] [cursor=pointer]:
+              - img "team" [ref=e281] [cursor=pointer]:
+                - img [ref=e282] [cursor=pointer]
+              - generic [ref=e284] [cursor=pointer]: Team
+            - generic [ref=e287] [cursor=pointer]:
+              - img "dollar" [ref=e288] [cursor=pointer]:
+                - img [ref=e289] [cursor=pointer]
+              - generic [ref=e291] [cursor=pointer]: Reports
+```

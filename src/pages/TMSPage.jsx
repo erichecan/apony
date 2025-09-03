@@ -6,6 +6,7 @@ import {
   MobileOutlined, 
   LinkOutlined 
 } from '@ant-design/icons';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const { Text, Title } = Typography;
 

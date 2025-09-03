@@ -9,6 +9,10 @@ import TMSOverviewPage from './pages/TMSOverviewPage';
 import TMSOrderPage from './pages/TMSOrderPage';
 import TMSPage from './pages/TMSPage';
 import WMSPage from './pages/WMS';
+import WMSInventoryPage from './pages/WMSInventoryPage';
+import WMSInboundPage from './pages/WMSInboundPage';
+import WMSOutboundPage from './pages/WMSOutboundPage';
+import WMSOperationsPage from './pages/WMSOperationsPage';
 import FreightPage from './pages/Freight';
 import FleetPage from './pages/Fleet';
 import CRMPage from './pages/CRM';
@@ -43,6 +47,10 @@ function App() {
               <Route path="tms/driver-app" element={<TMSPage />} />
               <Route path="tms/tracking" element={<TMSPage />} />
               <Route path="wms" element={<WMSPage />} />
+              <Route path="wms/inventory" element={<WMSInventoryPage />} />
+              <Route path="wms/inbound" element={<WMSInboundPage />} />
+              <Route path="wms/outbound" element={<WMSOutboundPage />} />
+              <Route path="wms/operations" element={<WMSOperationsPage />} />
               <Route path="freight" element={<FreightPage />} />
               <Route path="fleet" element={<FleetPage />} />
               <Route path="crm" element={<CRMPage />} />

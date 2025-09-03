@@ -1,58 +1,84 @@
 import React from 'react';
-import { Row, Col, Card, Typography, Statistic } from 'antd';
+import { Row, Col, Card, Typography, Button, Statistic } from 'antd';
 import { 
   ControlOutlined,
   LoginOutlined,
   LogoutOutlined,
-  DashboardOutlined
+  DashboardOutlined,
+  ArrowRightOutlined
 } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const { Title, Text } = Typography;
 
 /**
- * Smart Warehouse Operations Blueprint - WMS Page
- * Updated: 2024-12-19 22:47:15
- * Purpose: Showcase warehouse operational solutions for multi-warehouse management
+ * WMS Overview Page Component
+ * Updated: 2024-12-19 23:45:00
+ * Purpose: WMS module overview page - first level navigation
  */
 const WMSPage = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   
-  // Updated feature cards focusing on solving warehouse operational pains
-  const featureCards = [
+  // WMS module overview cards
+  const moduleCards = [
     {
       icon: <ControlOutlined style={{ fontSize: 32, color: '#1890ff' }} />,
       title: t('wms.unifiedMultiWarehouseInventory'),
       description: t('wms.unifiedMultiWarehouseInventoryDesc'),
+      path: '/wms/inventory',
       color: '#1890ff'
     },
     {
       icon: <LoginOutlined style={{ fontSize: 32, color: '#52c41a' }} />,
       title: t('wms.automatedInboundProcess'),
       description: t('wms.automatedInboundProcessDesc'),
+      path: '/wms/inbound',
       color: '#52c41a'
     },
     {
       icon: <LogoutOutlined style={{ fontSize: 32, color: '#722ed1' }} />,
       title: t('wms.optimizedPaperlessOutbound'),
       description: t('wms.optimizedPaperlessOutboundDesc'),
+      path: '/wms/outbound',
       color: '#722ed1'
     },
     {
       icon: <DashboardOutlined style={{ fontSize: 32, color: '#faad14' }} />,
       title: t('wms.proactiveOperationsLaborManagement'),
       description: t('wms.proactiveOperationsLaborManagementDesc'),
+      path: '/wms/operations',
       color: '#faad14'
     }
   ];
 
-  return (
-    <div>
-      <Title level={2} style={{ marginBottom: 24 }}>
-        {t('wms.smartWarehouseOperationsBlueprint')}
-      </Title>
+  const handleCardClick = (path) => {
+    navigate(path);
+  };
 
-      {/* Updated Overview Paragraph */}
+  return (
+    <div style={{ padding: '24px' }}>
+      {/* Page Header */}
+      <Card
+        style={{ 
+          background: '#fff', 
+          marginBottom: '24px',
+          borderRadius: '8px',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+          border: 'none'
+        }}
+        bodyStyle={{ padding: '24px' }}
+      >
+        <Title level={2} style={{ margin: 0, marginBottom: '8px' }}>
+          {t('wms.title')}
+        </Title>
+        <Text style={{ fontSize: '16px', color: '#666' }}>
+          {t('wms.overviewSubtitle')}
+        </Text>
+      </Card>
+
+      {/* Overview Description */}
       <div style={{ 
         background: '#f6f8fa', 
         padding: '20px', 
@@ -65,25 +91,28 @@ const WMSPage = () => {
         </Text>
       </div>
 
-      {/* Updated Feature Cards - 2x2 Grid */}
+      {/* Module Cards - Clickable to navigate to sub-pages */}
       <Row gutter={[24, 24]} style={{ marginBottom: 32 }}>
-        {featureCards.map((feature, index) => (
-          <Col xs={24} sm={12} key={index}>
+        {moduleCards.map((module, index) => (
+          <Col xs={24} sm={12} lg={6} key={index}>
             <Card
+              hoverable
               style={{
                 height: '100%',
                 border: '1px solid #e8e8e8',
                 borderRadius: '8px',
                 boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-                transition: 'all 0.3s ease'
+                transition: 'all 0.3s ease',
+                cursor: 'pointer'
               }}
               bodyStyle={{ 
                 padding: '24px',
                 textAlign: 'center'
               }}
+              onClick={() => handleCardClick(module.path)}
             >
               <div style={{ marginBottom: '16px' }}>
-                {feature.icon}
+                {module.icon}
               </div>
               <h3 style={{ 
                 marginBottom: '12px', 
@@ -91,122 +120,85 @@ const WMSPage = () => {
                 fontWeight: '600',
                 color: '#262626'
               }}>
-                {feature.title}
+                {module.title}
               </h3>
               <Text style={{ 
                 fontSize: '14px', 
                 lineHeight: '1.6',
-                color: '#595959'
+                color: '#595959',
+                marginBottom: '16px',
+                display: 'block'
               }}>
-                {feature.description}
+                {module.description}
               </Text>
+              <Button 
+                type="primary" 
+                size="small"
+                icon={<ArrowRightOutlined />}
+                style={{ 
+                  backgroundColor: module.color,
+                  borderColor: module.color
+                }}
+              >
+                {t('common.viewDetails')}
+              </Button>
             </Card>
           </Col>
         ))}
       </Row>
 
-      {/* Multi-Warehouse Overview */}
-      <Row gutter={[16, 16]} style={{ marginBottom: 24 }}>
-        <Col xs={24} lg={16}>
-          <Card title={t('wms.multiWarehouseOperationsOverview')}>
-            <div style={{ 
-              height: 300, 
-              background: 'linear-gradient(45deg, #f0f0f0 25%, transparent 25%), linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f0f0f0 75%), linear-gradient(-45deg, transparent 75%, #f0f0f0 75%)',
-              backgroundSize: '20px 20px',
-              backgroundPosition: '0 0, 0 10px, 10px -10px, -10px 0px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: 8
-            }}>
-              <div style={{ textAlign: 'center' }}>
-                <ControlOutlined style={{ fontSize: 64, color: '#1890ff' }} />
-                <div style={{ marginTop: 16, fontSize: 18, color: '#666' }}>
-                  {t('wms.unifiedMultiWarehouseManagementInterface')}
-                </div>
-                <div style={{ fontSize: 14, color: '#999' }}>
-                  {t('wms.realTimeVisibilityAcrossAllFourWarehouseLocations')}
-                </div>
+      {/* Quick Stats */}
+      <Row gutter={[16, 16]} style={{ marginTop: '32px' }}>
+        <Col xs={24} sm={12} md={6}>
+          <Card>
+            <div style={{ textAlign: 'center' }}>
+              <ControlOutlined style={{ fontSize: 24, color: '#1890ff' }} />
+              <div style={{ marginTop: '8px', fontSize: '18px', fontWeight: '600' }}>
+                {t('wms.totalSKUs')}
+              </div>
+              <div style={{ fontSize: '14px', color: '#666' }}>
+                15,420 {t('common.skus')}
               </div>
             </div>
           </Card>
         </Col>
-        <Col xs={24} lg={8}>
-          <Card title={t('wms.quickOperations')}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-              <Card size="small" hoverable style={{ cursor: 'pointer' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                  <LoginOutlined style={{ color: '#1890ff' }} />
-                  <span>{t('wms.receiveGoods')}</span>
-                </div>
-              </Card>
-              <Card size="small" hoverable style={{ cursor: 'pointer' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                  <LogoutOutlined style={{ color: '#52c41a' }} />
-                  <span>{t('wms.pickOrders')}</span>
-                </div>
-              </Card>
-              <Card size="small" hoverable style={{ cursor: 'pointer' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                  <ControlOutlined style={{ color: '#722ed1' }} />
-                  <span>{t('wms.inventoryCheck')}</span>
-                </div>
-              </Card>
-              <Card size="small" hoverable style={{ cursor: 'pointer' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                  <DashboardOutlined style={{ color: '#faad14' }} />
-                  <span>{t('wms.performanceReports')}</span>
-                </div>
-              </Card>
+        <Col xs={24} sm={12} md={6}>
+          <Card>
+            <div style={{ textAlign: 'center' }}>
+              <LoginOutlined style={{ fontSize: 24, color: '#52c41a' }} />
+              <div style={{ marginTop: '8px', fontSize: '18px', fontWeight: '600' }}>
+                {t('wms.spaceUtilization')}
+              </div>
+              <div style={{ fontSize: '14px', color: '#666' }}>
+                78.5%
+              </div>
             </div>
           </Card>
         </Col>
-      </Row>
-
-      {/* Updated Statistics */}
-      <Row gutter={[16, 16]}>
         <Col xs={24} sm={12} md={6}>
           <Card>
-            <Statistic
-              title={t('wms.totalSKUsAcrossAllWarehouses')}
-              value={15420}
-              valueStyle={{ color: '#1890ff' }}
-              prefix={<ControlOutlined />}
-            />
+            <div style={{ textAlign: 'center' }}>
+              <LogoutOutlined style={{ fontSize: 24, color: '#722ed1' }} />
+              <div style={{ marginTop: '8px', fontSize: '18px', fontWeight: '600' }}>
+                {t('wms.ordersProcessed')}
+              </div>
+              <div style={{ fontSize: '14px', color: '#666' }}>
+                342 {t('common.orders')}
+              </div>
+            </div>
           </Card>
         </Col>
         <Col xs={24} sm={12} md={6}>
           <Card>
-            <Statistic
-              title={t('wms.averageSpaceUtilization')}
-              value={78.5}
-              precision={1}
-              valueStyle={{ color: '#52c41a' }}
-              prefix={<DashboardOutlined />}
-              suffix="%"
-            />
-          </Card>
-        </Col>
-        <Col xs={24} sm={12} md={6}>
-          <Card>
-            <Statistic
-              title={t('wms.ordersProcessedToday')}
-              value={342}
-              valueStyle={{ color: '#722ed1' }}
-              prefix={<LogoutOutlined />}
-            />
-          </Card>
-        </Col>
-        <Col xs={24} sm={12} md={6}>
-          <Card>
-            <Statistic
-              title={t('wms.pickAccuracyRate')}
-              value={99.2}
-              precision={1}
-              valueStyle={{ color: '#3f8600' }}
-              prefix={<ControlOutlined />}
-              suffix="%"
-            />
+            <div style={{ textAlign: 'center' }}>
+              <DashboardOutlined style={{ fontSize: 24, color: '#faad14' }} />
+              <div style={{ marginTop: '8px', fontSize: '18px', fontWeight: '600' }}>
+                {t('wms.pickAccuracy')}
+              </div>
+              <div style={{ fontSize: '14px', color: '#666' }}>
+                99.2%
+              </div>
+            </div>
           </Card>
         </Col>
       </Row>

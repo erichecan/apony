@@ -1,23 +1,26 @@
 import React from 'react';
-import { Row, Col, Card, Statistic, Typography, Radio, Table, Progress, Tag } from 'antd';
+import { Row, Col, Card, Statistic, Typography, Radio, Table, Progress, Tag, Button } from 'antd';
 import { Pie, Gauge, Line } from '@ant-design/charts';
 import { 
   DollarOutlined, 
   ShoppingCartOutlined, 
   CarOutlined, 
-  TeamOutlined 
+  TeamOutlined,
+  HomeOutlined
 } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const { Title } = Typography;
 
 /**
  * Multi-Warehouse Command Center Dashboard
- * Updated: 2024-12-19 14:35:42
- * Purpose: Showcase unified multi-warehouse management capabilities
+ * Updated: 2024-12-20 00:35:00
+ * Purpose: Showcase unified multi-warehouse management capabilities with clickable warehouse navigation
  */
 const Dashboard = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   
   // Mock data for charts
   const orderStatusData = [
@@ -38,11 +41,11 @@ const Dashboard = () => {
     { date: 'Sun', revenue: 11200 },
   ];
 
-  // Mock data for warehouse overview table
+  // Mock data for warehouse overview table with updated names
   const warehouseData = [
     {
       key: '1',
-      warehouseName: t('dashboard.warehouseA'),
+      warehouseName: t('dashboard.warehouse1YYZ'),
       capacityUsage: 85,
       inboundTasks: 5,
       outboundTasks: 22,
@@ -52,7 +55,7 @@ const Dashboard = () => {
     },
     {
       key: '2',
-      warehouseName: t('dashboard.warehouseB'),
+      warehouseName: t('dashboard.warehouse2YVR'),
       capacityUsage: 72,
       inboundTasks: 3,
       outboundTasks: 18,
@@ -62,7 +65,7 @@ const Dashboard = () => {
     },
     {
       key: '3',
-      warehouseName: t('dashboard.warehouseC'),
+      warehouseName: t('dashboard.warehouse3YYC'),
       capacityUsage: 91,
       inboundTasks: 8,
       outboundTasks: 15,
@@ -72,7 +75,7 @@ const Dashboard = () => {
     },
     {
       key: '4',
-      warehouseName: t('dashboard.warehouseD'),
+      warehouseName: t('dashboard.warehouse4YUL'),
       capacityUsage: 68,
       inboundTasks: 2,
       outboundTasks: 12,
@@ -81,6 +84,11 @@ const Dashboard = () => {
       alertColor: 'green'
     }
   ];
+
+  // Handle warehouse navigation
+  const handleWarehouseClick = (warehouseId) => {
+    navigate(`/warehouse/${warehouseId}`);
+  };
 
   // Table columns configuration
   const columns = [
@@ -201,18 +209,57 @@ const Dashboard = () => {
         {t('dashboard.multiWarehouseCommandCenter')}
       </Title>
 
-      {/* Warehouse Filter */}
+      {/* Warehouse Navigation */}
       <Card style={{ marginBottom: 24 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
           <span style={{ fontWeight: 500, fontSize: '16px' }}>{t('dashboard.warehouseView')}</span>
-          <Radio.Group defaultValue="all" buttonStyle="solid">
-            <Radio.Button value="all">{t('dashboard.all')}</Radio.Button>
-            <Radio.Button value="toronto">{t('dashboard.warehouseA')}</Radio.Button>
-            <Radio.Button value="vancouver">{t('dashboard.warehouseB')}</Radio.Button>
-            <Radio.Button value="calgary">{t('dashboard.warehouseC')}</Radio.Button>
-            <Radio.Button value="montreal">{t('dashboard.warehouseD')}</Radio.Button>
-          </Radio.Group>
         </div>
+        <Row gutter={[12, 12]}>
+          <Col xs={24} sm={12} md={6}>
+            <Button 
+              type="primary" 
+              size="large"
+              icon={<HomeOutlined />}
+              style={{ width: '100%', height: '60px', fontSize: '14px' }}
+              onClick={() => handleWarehouseClick('1')}
+            >
+              {t('dashboard.warehouse1YYZ')}
+            </Button>
+          </Col>
+          <Col xs={24} sm={12} md={6}>
+            <Button 
+              type="primary" 
+              size="large"
+              icon={<HomeOutlined />}
+              style={{ width: '100%', height: '60px', fontSize: '14px' }}
+              onClick={() => handleWarehouseClick('2')}
+            >
+              {t('dashboard.warehouse2YVR')}
+            </Button>
+          </Col>
+          <Col xs={24} sm={12} md={6}>
+            <Button 
+              type="primary" 
+              size="large"
+              icon={<HomeOutlined />}
+              style={{ width: '100%', height: '60px', fontSize: '14px' }}
+              onClick={() => handleWarehouseClick('3')}
+            >
+              {t('dashboard.warehouse3YYC')}
+            </Button>
+          </Col>
+          <Col xs={24} sm={12} md={6}>
+            <Button 
+              type="primary" 
+              size="large"
+              icon={<HomeOutlined />}
+              style={{ width: '100%', height: '60px', fontSize: '14px' }}
+              onClick={() => handleWarehouseClick('4')}
+            >
+              {t('dashboard.warehouse4YUL')}
+            </Button>
+          </Col>
+        </Row>
       </Card>
 
       {/* Updated Statistics Cards */}

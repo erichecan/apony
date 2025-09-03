@@ -5,6 +5,7 @@ import { LanguageProvider } from './contexts/LanguageContext';
 import MainLayout from './components/MainLayout';
 import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/Dashboard';
+import WarehouseDetailPage from './pages/WarehouseDetailPage';
 import TMSOverviewPage from './pages/TMSOverviewPage';
 import TMSOrderPage from './pages/TMSOrderPage';
 import TMSPage from './pages/TMSPage';
@@ -41,6 +42,7 @@ function App() {
             {/* Main application routes - inside main layout */}
             <Route path="/" element={<MainLayout />}>
               <Route index element={<Dashboard />} />
+              <Route path="warehouse/:warehouseId" element={<WarehouseDetailPage />} />
               <Route path="tms" element={<TMSOverviewPage />} />
               <Route path="tms/orders" element={<TMSOrderPage />} />
               <Route path="tms/dispatch" element={<TMSPage />} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageHeader, Row, Col, Card, Typography } from 'antd';
+import { Row, Col, Card, Typography } from 'antd';
 import { 
   DatabaseOutlined, 
   AimOutlined, 
@@ -7,11 +7,11 @@ import {
   LinkOutlined 
 } from '@ant-design/icons';
 
-const { Text } = Typography;
+const { Text, Title } = Typography;
 
 /**
  * TMS Module Page Component
- * Created: 2024-12-19 14:30:25
+ * Updated: 2024-12-19 22:32:15
  * Purpose: Descriptive page showcasing TMS sub-features for demonstration purposes
  */
 const TMSPage = () => {
@@ -41,17 +41,24 @@ const TMSPage = () => {
 
   return (
     <div style={{ padding: '24px' }}>
-      {/* Page Header */}
-      <PageHeader
-        title="Transportation Management System (TMS)"
-        subTitle="Core Functionality Blueprint"
+      {/* Custom Page Header */}
+      <Card
         style={{ 
           background: '#fff', 
           marginBottom: '24px',
           borderRadius: '8px',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+          boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+          border: 'none'
         }}
-      />
+        bodyStyle={{ padding: '24px' }}
+      >
+        <Title level={2} style={{ margin: 0, marginBottom: '8px' }}>
+          Transportation Management System (TMS)
+        </Title>
+        <Text style={{ fontSize: '16px', color: '#666' }}>
+          Core Functionality Blueprint
+        </Text>
+      </Card>
 
       {/* Overview Paragraph */}
       <div style={{ 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Card, Typography, Breadcrumb, Statistic, Progress, Tag, Table } from 'antd';
+import { Row, Col, Card, Typography, Breadcrumb, Statistic, Progress, Tag, Table, Select } from 'antd';
 import { 
   HomeOutlined, 
   TeamOutlined, 
@@ -7,9 +7,10 @@ import {
   CarOutlined,
   AlertOutlined,
   CheckCircleOutlined,
-  ClockCircleOutlined
+  ClockCircleOutlined,
+  SwapOutlined
 } from '@ant-design/icons';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const { Title, Text } = Typography;
@@ -22,6 +23,7 @@ const { Title, Text } = Typography;
 const WarehouseDetailPage = () => {
   const { t } = useLanguage();
   const { warehouseId } = useParams();
+  const navigate = useNavigate();
   
   // Warehouse data mapping
   const warehouseData = {
@@ -96,6 +98,25 @@ const WarehouseDetailPage = () => {
   };
 
   const warehouse = warehouseData[warehouseId] || warehouseData['1'];
+
+  // Warehouse options for dropdown
+  const warehouseOptions = Object.values(warehouseData).map(warehouse => ({
+    value: warehouse.id,
+    label: (
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <HomeOutlined style={{ color: '#1890ff' }} />
+        <span>{warehouse.name}</span>
+        <Tag color={warehouse.alertColor} size="small" style={{ marginLeft: 'auto' }}>
+          {warehouse.alertText}
+        </Tag>
+      </div>
+    )
+  }));
+
+  // Handle warehouse change
+  const handleWarehouseChange = (newWarehouseId) => {
+    navigate(`/warehouse/${newWarehouseId}`);
+  };
 
   // Mock data for worker status
   const workerData = [
@@ -196,7 +217,7 @@ const WarehouseDetailPage = () => {
         }}
         bodyStyle={{ padding: '24px' }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
           <div>
             <Title level={2} style={{ margin: 0, marginBottom: '8px' }}>
               {warehouse.name}
@@ -212,6 +233,29 @@ const WarehouseDetailPage = () => {
             <div style={{ fontSize: '12px', color: '#999', marginTop: '4px' }}>
               {t('dashboard.lastUpdated')}: {warehouse.lastUpdated}
             </div>
+          </div>
+        </div>
+        
+        {/* Warehouse Navigation */}
+        <div style={{ 
+          background: '#f8f9fa', 
+          padding: '16px', 
+          borderRadius: '8px',
+          border: '1px solid #e8e8e8'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <SwapOutlined style={{ color: '#1890ff', fontSize: '16px' }} />
+            <span style={{ fontWeight: '500', fontSize: '14px', color: '#666' }}>
+              {t('dashboard.switchWarehouse')}:
+            </span>
+            <Select
+              value={warehouseId}
+              onChange={handleWarehouseChange}
+              style={{ width: 300 }}
+              size="middle"
+              options={warehouseOptions}
+              placeholder={t('dashboard.selectWarehouse')}
+            />
           </div>
         </div>
       </Card>

@@ -1,11 +1,12 @@
 import React from 'react';
-import { Row, Col, Card, Typography, Button } from 'antd';
+import { Row, Col, Card, Typography, Button, Select } from 'antd';
 import { 
   CarOutlined, 
   AimOutlined, 
   MobileOutlined, 
   LinkOutlined,
-  ArrowRightOutlined
+  ArrowRightOutlined,
+  SwapOutlined
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -90,6 +91,36 @@ const TMSOverviewPage = () => {
           {t('tms.overviewDescription')}
         </Text>
       </div>
+
+      {/* Warehouse Navigation */}
+      <Card style={{ marginBottom: '24px' }}>
+        <div style={{ 
+          background: '#f8f9fa', 
+          padding: '16px', 
+          borderRadius: '8px',
+          border: '1px solid #e8e8e8'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <SwapOutlined style={{ color: '#1890ff', fontSize: '16px' }} />
+            <span style={{ fontWeight: '500', fontSize: '14px', color: '#666' }}>
+              {t('dashboard.switchWarehouse')}:
+            </span>
+            <Select
+              defaultValue="all"
+              style={{ width: 300 }}
+              size="middle"
+              options={[
+                { value: 'all', label: t('dashboard.all') },
+                { value: '1', label: t('dashboard.warehouse1YYZ') },
+                { value: '2', label: t('dashboard.warehouse2YVR') },
+                { value: '3', label: t('dashboard.warehouse3YYC') },
+                { value: '4', label: t('dashboard.warehouse4YUL') }
+              ]}
+              placeholder={t('dashboard.selectWarehouse')}
+            />
+          </div>
+        </div>
+      </Card>
 
       {/* Module Cards - Clickable to navigate to sub-pages */}
       <Row gutter={[24, 24]}>

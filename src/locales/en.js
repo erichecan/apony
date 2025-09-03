@@ -136,7 +136,9 @@ export default {
     receiveGoods: "Receive Goods",
     pickOrders: "Pick Orders",
     manageTeam: "Manage Team",
-    viewAlerts: "View Alerts"
+    viewAlerts: "View Alerts",
+    switchWarehouse: "Switch Warehouse",
+    selectWarehouse: "Select a warehouse"
   },
 
   // TMS

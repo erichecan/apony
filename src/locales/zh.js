@@ -136,7 +136,9 @@ export default {
     receiveGoods: "接收货物",
     pickOrders: "拣选订单",
     manageTeam: "管理团队",
-    viewAlerts: "查看警报"
+    viewAlerts: "查看警报",
+    switchWarehouse: "切换仓库",
+    selectWarehouse: "选择仓库"
   },
 
   // TMS

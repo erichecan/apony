@@ -42,42 +42,42 @@ const Dashboard = () => {
   const warehouseData = [
     {
       key: '1',
-      warehouseName: 'Warehouse A (Toronto)',
+      warehouseName: t('dashboard.warehouseA'),
       capacityUsage: 85,
       inboundTasks: 5,
       outboundTasks: 22,
       workerStatus: '3 Active / 1 Idle',
-      alerts: 'High Volume',
+      alerts: t('dashboard.highVolume'),
       alertColor: 'red'
     },
     {
       key: '2',
-      warehouseName: 'Warehouse B (Vancouver)',
+      warehouseName: t('dashboard.warehouseB'),
       capacityUsage: 72,
       inboundTasks: 3,
       outboundTasks: 18,
       workerStatus: '2 Active / 2 Idle',
-      alerts: 'Normal',
+      alerts: t('dashboard.normal'),
       alertColor: 'green'
     },
     {
       key: '3',
-      warehouseName: 'Warehouse C (Calgary)',
+      warehouseName: t('dashboard.warehouseC'),
       capacityUsage: 91,
       inboundTasks: 8,
       outboundTasks: 15,
       workerStatus: '4 Active / 0 Idle',
-      alerts: 'Low Space',
+      alerts: t('dashboard.lowSpace'),
       alertColor: 'orange'
     },
     {
       key: '4',
-      warehouseName: 'Warehouse D (Montreal)',
+      warehouseName: t('dashboard.warehouseD'),
       capacityUsage: 68,
       inboundTasks: 2,
       outboundTasks: 12,
       workerStatus: '2 Active / 1 Idle',
-      alerts: 'Normal',
+      alerts: t('dashboard.normal'),
       alertColor: 'green'
     }
   ];
@@ -85,13 +85,13 @@ const Dashboard = () => {
   // Table columns configuration
   const columns = [
     {
-      title: 'Warehouse Name',
+      title: t('dashboard.warehouseName'),
       dataIndex: 'warehouseName',
       key: 'warehouseName',
       width: 200,
     },
     {
-      title: 'Capacity Usage',
+      title: t('dashboard.capacityUsage'),
       dataIndex: 'capacityUsage',
       key: 'capacityUsage',
       width: 150,
@@ -104,28 +104,28 @@ const Dashboard = () => {
       ),
     },
     {
-      title: 'Inbound Tasks',
+      title: t('dashboard.inboundTasks'),
       dataIndex: 'inboundTasks',
       key: 'inboundTasks',
       width: 120,
       align: 'center',
     },
     {
-      title: 'Outbound Tasks',
+      title: t('dashboard.outboundTasks'),
       dataIndex: 'outboundTasks',
       key: 'outboundTasks',
       width: 120,
       align: 'center',
     },
     {
-      title: 'Worker Status',
+      title: t('dashboard.workerStatus'),
       dataIndex: 'workerStatus',
       key: 'workerStatus',
       width: 150,
       align: 'center',
     },
     {
-      title: 'Alerts',
+      title: t('dashboard.alerts'),
       dataIndex: 'alerts',
       key: 'alerts',
       width: 120,
@@ -198,19 +198,19 @@ const Dashboard = () => {
   return (
     <div>
       <Title level={2} style={{ marginBottom: 24 }}>
-        Multi-Warehouse Command Center
+        {t('dashboard.multiWarehouseCommandCenter')}
       </Title>
 
       {/* Warehouse Filter */}
       <Card style={{ marginBottom: 24 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <span style={{ fontWeight: 500, fontSize: '16px' }}>Warehouse View:</span>
+          <span style={{ fontWeight: 500, fontSize: '16px' }}>{t('dashboard.warehouseView')}</span>
           <Radio.Group defaultValue="all" buttonStyle="solid">
-            <Radio.Button value="all">All</Radio.Button>
-            <Radio.Button value="toronto">Warehouse A (Toronto)</Radio.Button>
-            <Radio.Button value="vancouver">Warehouse B (Vancouver)</Radio.Button>
-            <Radio.Button value="calgary">Warehouse C (Calgary)</Radio.Button>
-            <Radio.Button value="montreal">Warehouse D (Montreal)</Radio.Button>
+            <Radio.Button value="all">{t('dashboard.all')}</Radio.Button>
+            <Radio.Button value="toronto">{t('dashboard.warehouseA')}</Radio.Button>
+            <Radio.Button value="vancouver">{t('dashboard.warehouseB')}</Radio.Button>
+            <Radio.Button value="calgary">{t('dashboard.warehouseC')}</Radio.Button>
+            <Radio.Button value="montreal">{t('dashboard.warehouseD')}</Radio.Button>
           </Radio.Group>
         </div>
       </Card>
@@ -220,7 +220,7 @@ const Dashboard = () => {
         <Col xs={24} sm={12} lg={6}>
           <Card>
             <Statistic
-              title="Total Inventory Value (All Warehouses)"
+              title={t('dashboard.totalInventoryValue')}
               value={1250800}
               precision={0}
               valueStyle={{ color: '#3f8600' }}
@@ -232,7 +232,7 @@ const Dashboard = () => {
         <Col xs={24} sm={12} lg={6}>
           <Card>
             <Statistic
-              title="Total Available Capacity"
+              title={t('dashboard.totalAvailableCapacity')}
               value={75}
               valueStyle={{ color: '#1890ff' }}
               prefix={<TeamOutlined />}
@@ -243,7 +243,7 @@ const Dashboard = () => {
         <Col xs={24} sm={12} lg={6}>
           <Card>
             <Statistic
-              title="Pending Orders (Today)"
+              title={t('dashboard.pendingOrdersToday')}
               value={89}
               valueStyle={{ color: '#722ed1' }}
               prefix={<ShoppingCartOutlined />}
@@ -253,7 +253,7 @@ const Dashboard = () => {
         <Col xs={24} sm={12} lg={6}>
           <Card>
             <Statistic
-              title="Shipments Dispatched (Today)"
+              title={t('dashboard.shipmentsDispatchedToday')}
               value={152}
               valueStyle={{ color: '#faad14' }}
               prefix={<CarOutlined />}
@@ -263,7 +263,7 @@ const Dashboard = () => {
       </Row>
 
       {/* Warehouse Live Status Table */}
-      <Card title="Warehouse Live Status" style={{ marginBottom: 24 }}>
+      <Card title={t('dashboard.warehouseLiveStatus')} style={{ marginBottom: 24 }}>
         <Table
           columns={columns}
           dataSource={warehouseData}
@@ -281,7 +281,7 @@ const Dashboard = () => {
           </Card>
         </Col>
         <Col xs={24} lg={12}>
-          <Card title="Multi-Warehouse Capacity Overview" style={{ height: 400 }}>
+          <Card title={t('dashboard.multiWarehouseCapacityOverview')} style={{ height: 400 }}>
             <div style={{ textAlign: 'center', paddingTop: 40 }}>
               <Gauge {...gaugeConfig} height={250} />
             </div>

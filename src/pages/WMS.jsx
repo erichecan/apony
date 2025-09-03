@@ -12,7 +12,7 @@ const { Title, Text } = Typography;
 
 /**
  * Smart Warehouse Operations Blueprint - WMS Page
- * Updated: 2024-12-19 14:38:15
+ * Updated: 2024-12-19 22:47:15
  * Purpose: Showcase warehouse operational solutions for multi-warehouse management
  */
 const WMSPage = () => {
@@ -22,26 +22,26 @@ const WMSPage = () => {
   const featureCards = [
     {
       icon: <ControlOutlined style={{ fontSize: 32, color: '#1890ff' }} />,
-      title: 'Unified Multi-Warehouse Inventory',
-      description: 'Provides a single, real-time view of all inventory across all four warehouses. Search any SKU and instantly see its location, quantity, and status, eliminating the need for manual Excel consolidation.',
+      title: t('wms.unifiedMultiWarehouseInventory'),
+      description: t('wms.unifiedMultiWarehouseInventoryDesc'),
       color: '#1890ff'
     },
     {
       icon: <LoginOutlined style={{ fontSize: 32, color: '#52c41a' }} />,
-      title: 'Automated Inbound Process',
-      description: 'Features a supplier booking portal, PDA/mobile app for scan-to-receive, and AI-powered slotting recommendations. This standardizes receiving and ensures goods are stored optimally from the moment they arrive.',
+      title: t('wms.automatedInboundProcess'),
+      description: t('wms.automatedInboundProcessDesc'),
       color: '#52c41a'
     },
     {
       icon: <LogoutOutlined style={{ fontSize: 32, color: '#722ed1' }} />,
-      title: 'Optimized & Paperless Outbound',
-      description: 'Includes intelligent order routing to select the best warehouse for fulfillment. The system generates optimized picking paths for workers on their mobile app, eliminating paper and minimizing errors.',
+      title: t('wms.optimizedPaperlessOutbound'),
+      description: t('wms.optimizedPaperlessOutboundDesc'),
       color: '#722ed1'
     },
     {
       icon: <DashboardOutlined style={{ fontSize: 32, color: '#faad14' }} />,
-      title: 'Proactive Operations & Labor Management',
-      description: 'A manager\'s dashboard with real-time KPIs on worker efficiency, warehouse throughput, and potential bottlenecks. Proactive alerts for low stock or high volume allow managers to solve problems before they happen.',
+      title: t('wms.proactiveOperationsLaborManagement'),
+      description: t('wms.proactiveOperationsLaborManagementDesc'),
       color: '#faad14'
     }
   ];
@@ -49,7 +49,7 @@ const WMSPage = () => {
   return (
     <div>
       <Title level={2} style={{ marginBottom: 24 }}>
-        Smart Warehouse Operations Blueprint
+        {t('wms.smartWarehouseOperationsBlueprint')}
       </Title>
 
       {/* Updated Overview Paragraph */}
@@ -61,7 +61,7 @@ const WMSPage = () => {
         border: '1px solid #e8e8e8'
       }}>
         <Text style={{ fontSize: '16px', lineHeight: '1.6', color: '#333' }}>
-          This module transforms our warehouses from manual-heavy cost centers into efficient, data-driven fulfillment hubs. It empowers a single manager to oversee multiple locations with precision and ease.
+          {t('wms.overviewDescription')}
         </Text>
       </div>
 
@@ -108,7 +108,7 @@ const WMSPage = () => {
       {/* Multi-Warehouse Overview */}
       <Row gutter={[16, 16]} style={{ marginBottom: 24 }}>
         <Col xs={24} lg={16}>
-          <Card title="Multi-Warehouse Operations Overview">
+          <Card title={t('wms.multiWarehouseOperationsOverview')}>
             <div style={{ 
               height: 300, 
               background: 'linear-gradient(45deg, #f0f0f0 25%, transparent 25%), linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f0f0f0 75%), linear-gradient(-45deg, transparent 75%, #f0f0f0 75%)',
@@ -122,40 +122,40 @@ const WMSPage = () => {
               <div style={{ textAlign: 'center' }}>
                 <ControlOutlined style={{ fontSize: 64, color: '#1890ff' }} />
                 <div style={{ marginTop: 16, fontSize: 18, color: '#666' }}>
-                  Unified Multi-Warehouse Management Interface
+                  {t('wms.unifiedMultiWarehouseManagementInterface')}
                 </div>
                 <div style={{ fontSize: 14, color: '#999' }}>
-                  Real-time visibility across all four warehouse locations
+                  {t('wms.realTimeVisibilityAcrossAllFourWarehouseLocations')}
                 </div>
               </div>
             </div>
           </Card>
         </Col>
         <Col xs={24} lg={8}>
-          <Card title="Quick Operations">
+          <Card title={t('wms.quickOperations')}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               <Card size="small" hoverable style={{ cursor: 'pointer' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                   <LoginOutlined style={{ color: '#1890ff' }} />
-                  <span>Receive Goods</span>
+                  <span>{t('wms.receiveGoods')}</span>
                 </div>
               </Card>
               <Card size="small" hoverable style={{ cursor: 'pointer' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                   <LogoutOutlined style={{ color: '#52c41a' }} />
-                  <span>Pick Orders</span>
+                  <span>{t('wms.pickOrders')}</span>
                 </div>
               </Card>
               <Card size="small" hoverable style={{ cursor: 'pointer' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                   <ControlOutlined style={{ color: '#722ed1' }} />
-                  <span>Inventory Check</span>
+                  <span>{t('wms.inventoryCheck')}</span>
                 </div>
               </Card>
               <Card size="small" hoverable style={{ cursor: 'pointer' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                   <DashboardOutlined style={{ color: '#faad14' }} />
-                  <span>Performance Reports</span>
+                  <span>{t('wms.performanceReports')}</span>
                 </div>
               </Card>
             </div>
@@ -168,7 +168,7 @@ const WMSPage = () => {
         <Col xs={24} sm={12} md={6}>
           <Card>
             <Statistic
-              title="Total SKUs Across All Warehouses"
+              title={t('wms.totalSKUsAcrossAllWarehouses')}
               value={15420}
               valueStyle={{ color: '#1890ff' }}
               prefix={<ControlOutlined />}
@@ -178,7 +178,7 @@ const WMSPage = () => {
         <Col xs={24} sm={12} md={6}>
           <Card>
             <Statistic
-              title="Average Space Utilization"
+              title={t('wms.averageSpaceUtilization')}
               value={78.5}
               precision={1}
               valueStyle={{ color: '#52c41a' }}
@@ -190,7 +190,7 @@ const WMSPage = () => {
         <Col xs={24} sm={12} md={6}>
           <Card>
             <Statistic
-              title="Orders Processed Today"
+              title={t('wms.ordersProcessedToday')}
               value={342}
               valueStyle={{ color: '#722ed1' }}
               prefix={<LogoutOutlined />}
@@ -200,7 +200,7 @@ const WMSPage = () => {
         <Col xs={24} sm={12} md={6}>
           <Card>
             <Statistic
-              title="Pick Accuracy Rate"
+              title={t('wms.pickAccuracyRate')}
               value={99.2}
               precision={1}
               valueStyle={{ color: '#3f8600' }}

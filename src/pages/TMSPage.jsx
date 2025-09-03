@@ -11,31 +11,33 @@ const { Text, Title } = Typography;
 
 /**
  * TMS Module Page Component
- * Updated: 2024-12-19 22:32:15
+ * Updated: 2024-12-19 22:45:30
  * Purpose: Descriptive page showcasing TMS sub-features for demonstration purposes
  */
 const TMSPage = () => {
+  const { t } = useLanguage();
+  
   // Feature cards data - non-clickable descriptive cards
   const featureCards = [
     {
       icon: <DatabaseOutlined style={{ fontSize: 32, color: '#1890ff' }} />,
-      title: 'Order Center',
-      description: 'A centralized hub to manage all customer orders. Supports various order types like LTL, FTL, and last-mile delivery. Allows for quick searching, filtering, and status updates.'
+      title: t('tms.orderCenter'),
+      description: t('tms.orderCenterDesc')
     },
     {
       icon: <AimOutlined style={{ fontSize: 32, color: '#52c41a' }} />,
-      title: 'Smart Dispatch Console',
-      description: 'A map-based, visual drag-and-drop interface for dispatchers. The system will suggest the most efficient driver and route, considering traffic, delivery windows, and vehicle capacity.'
+      title: t('tms.smartDispatch'),
+      description: t('tms.smartDispatchDesc')
     },
     {
       icon: <MobileOutlined style={{ fontSize: 32, color: '#722ed1' }} />,
-      title: 'Driver Mobile App',
-      description: 'A simple and intuitive app for our drivers. They can receive job details, use integrated navigation, update their status with a single tap, and upload proof of delivery (POD) photos.'
+      title: t('tms.driverMobile'),
+      description: t('tms.driverMobileDesc')
     },
     {
       icon: <LinkOutlined style={{ fontSize: 32, color: '#faad14' }} />,
-      title: 'Customer Tracking Portal',
-      description: 'Automatically generate a unique tracking link for each shipment. Customers can see their package\'s real-time location on a map and get an accurate ETA, reducing inquiry calls.'
+      title: t('tms.customerTracking'),
+      description: t('tms.customerTrackingDesc')
     }
   ];
 
@@ -53,10 +55,10 @@ const TMSPage = () => {
         bodyStyle={{ padding: '24px' }}
       >
         <Title level={2} style={{ margin: 0, marginBottom: '8px' }}>
-          Transportation Management System (TMS)
+          {t('tms.title')}
         </Title>
         <Text style={{ fontSize: '16px', color: '#666' }}>
-          Core Functionality Blueprint
+          {t('tms.coreFunctionalityBlueprint')}
         </Text>
       </Card>
 
@@ -69,7 +71,7 @@ const TMSPage = () => {
         border: '1px solid #e8e8e8'
       }}>
         <Text style={{ fontSize: '16px', lineHeight: '1.6', color: '#333' }}>
-          This module is the central nervous system for all our transportation tasks. It's designed to streamline operations from order creation to final delivery, reducing costs and improving customer satisfaction.
+          {t('tms.overviewDescription')}
         </Text>
       </div>
 

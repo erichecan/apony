@@ -5,6 +5,8 @@ import { LanguageProvider } from './contexts/LanguageContext';
 import MainLayout from './components/MainLayout';
 import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/Dashboard';
+import TMSOverviewPage from './pages/TMSOverviewPage';
+import TMSOrderPage from './pages/TMSOrderPage';
 import TMSPage from './pages/TMSPage';
 import WMSPage from './pages/WMS';
 import FreightPage from './pages/Freight';
@@ -35,7 +37,11 @@ function App() {
             {/* Main application routes - inside main layout */}
             <Route path="/" element={<MainLayout />}>
               <Route index element={<Dashboard />} />
-              <Route path="tms" element={<TMSPage />} />
+              <Route path="tms" element={<TMSOverviewPage />} />
+              <Route path="tms/orders" element={<TMSOrderPage />} />
+              <Route path="tms/dispatch" element={<TMSPage />} />
+              <Route path="tms/driver-app" element={<TMSPage />} />
+              <Route path="tms/tracking" element={<TMSPage />} />
               <Route path="wms" element={<WMSPage />} />
               <Route path="freight" element={<FreightPage />} />
               <Route path="fleet" element={<FleetPage />} />

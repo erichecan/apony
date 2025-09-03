@@ -11,6 +11,7 @@ export default {
     billing: "Billing",
     settings: "Settings",
     viewAll: "View All",
+    viewDetails: "View Details",
     details: "Details",
     edit: "Edit",
     delete: "Delete",
@@ -51,7 +52,10 @@ export default {
     overdue: "Overdue",
     draft: "Draft",
     published: "Published",
-    archived: "Archived"
+    archived: "Archived",
+    orders: "Orders",
+    drivers: "Drivers",
+    deliveries: "Deliveries"
   },
 
   // Navigation
@@ -108,9 +112,31 @@ export default {
   // TMS
   tms: {
     title: "Transportation Management System (TMS)",
+    overviewSubtitle: "Module Overview & Navigation",
+    overviewDescription: "Our comprehensive transportation management system streamlines all aspects of fleet operations, from order creation to final delivery. This module provides the tools and insights needed to optimize routes, manage drivers, and ensure customer satisfaction.",
+    orderManagement: "Order Management",
+    orderManagementDesc: "Centralized order processing and management system",
+    orderManagementSubtitle: "Comprehensive Order Processing & Management",
+    orderManagementOverview: "Our order management system provides a complete solution for handling customer orders from initial creation to final delivery. It includes advanced search capabilities, filtering options, and real-time status tracking.",
+    orderCenter: "Order Center",
+    orderCenterDesc: "Centralized hub for all customer orders with real-time status tracking",
+    orderSearch: "Advanced Search",
+    orderSearchDesc: "Powerful search functionality with multiple criteria and filters",
+    orderFiltering: "Smart Filtering",
+    orderFilteringDesc: "Intelligent filtering system for quick order identification",
+    orderCreation: "Order Creation",
+    orderCreationDesc: "Streamlined order creation process with validation",
+    dispatchSystem: "Dispatch System",
+    dispatchSystemDesc: "Intelligent dispatch console with route optimization",
+    driverApp: "Driver Mobile App",
+    driverAppDesc: "Mobile application for drivers with real-time updates",
+    trackingPortal: "Customer Tracking",
+    trackingPortalDesc: "Customer-facing tracking portal with real-time updates",
+    recentOrders: "Recent Orders",
+    orderDataInterface: "Order Management Interface",
+    orderDataDescription: "Real-time order data and management tools",
     coreFunctionalityBlueprint: "Core Functionality Blueprint",
     overviewDescription: "This module is the central nervous system for all our transportation tasks. It's designed to streamline operations from order creation to final delivery, reducing costs and improving customer satisfaction.",
-    orderCenter: "Order Center",
     orderCenterDesc: "A centralized hub to manage all customer orders. Supports various order types like LTL, FTL, and last-mile delivery. Allows for quick searching, filtering, and status updates.",
     smartDispatch: "Smart Dispatch Console",
     smartDispatchDesc: "A map-based, visual drag-and-drop interface for dispatchers. The system will suggest the most efficient driver and route, considering traffic, delivery windows, and vehicle capacity.",
@@ -118,7 +144,6 @@ export default {
     driverMobileDesc: "A simple and intuitive app for our drivers. They can receive job details, use integrated navigation, update their status with a single tap, and upload proof of delivery (POD) photos.",
     customerTracking: "Customer Tracking Portal",
     customerTrackingDesc: "Automatically generate a unique tracking link for each shipment. Customers can see their package's real-time location on a map and get an accurate ETA, reducing inquiry calls.",
-    orderCenterDesc: "Manage all customer orders, from creation to completion. Track order lifecycle, manage priorities, and handle exceptions.",
     smartDispatchDesc: "Visually assign jobs to drivers on a map and optimize routes using AI-powered algorithms for maximum efficiency.",
     driverMobileDesc: "Drivers receive jobs, update status, and navigate via their phones. Real-time communication and GPS tracking.",
     customerTrackingDesc: "Provide clients with a link to track their shipment in real-time. Enhanced visibility and customer satisfaction.",
@@ -134,7 +159,10 @@ export default {
     activeTrucks: "Active Trucks",
     todaysDeliveries: "Today's Deliveries",
     onTimeRate: "On-Time Rate",
-    fuelEfficiency: "Fuel Efficiency"
+    fuelEfficiency: "Fuel Efficiency",
+    activeOrders: "Active Orders",
+    activeDrivers: "Active Drivers",
+    todayDeliveries: "Today's Deliveries"
   },
 
   // WMS

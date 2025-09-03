@@ -1,0 +1,81 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - heading "LogiLink Pro" [level=4] [ref=e7]
+      - menu [ref=e8]:
+        - menuitem "dashboard Dashboard" [ref=e9] [cursor=pointer]:
+          - img "dashboard" [ref=e10] [cursor=pointer]:
+            - img [ref=e11] [cursor=pointer]
+          - generic [ref=e13] [cursor=pointer]: Dashboard
+        - menuitem "car Transportation (TMS)" [ref=e14] [cursor=pointer]:
+          - img "car" [ref=e15] [cursor=pointer]:
+            - img [ref=e16] [cursor=pointer]
+          - generic [ref=e18] [cursor=pointer]: Transportation (TMS)
+        - menuitem "shop Warehousing (WMS)" [ref=e19] [cursor=pointer]:
+          - img "shop" [ref=e20] [cursor=pointer]:
+            - img [ref=e21] [cursor=pointer]
+          - generic [ref=e23] [cursor=pointer]: Warehousing (WMS)
+        - menuitem "global Freight Forwarding" [ref=e24] [cursor=pointer]:
+          - img "global" [ref=e25] [cursor=pointer]:
+            - img [ref=e26] [cursor=pointer]
+          - generic [ref=e28] [cursor=pointer]: Freight Forwarding
+        - menuitem "team Fleet Management" [ref=e29] [cursor=pointer]:
+          - img "team" [ref=e30] [cursor=pointer]:
+            - img [ref=e31] [cursor=pointer]
+          - generic [ref=e33] [cursor=pointer]: Fleet Management
+        - menuitem "contacts Customer Relationship Management (CRM)" [ref=e34] [cursor=pointer]:
+          - img "contacts" [ref=e35] [cursor=pointer]:
+            - img [ref=e36] [cursor=pointer]
+          - generic [ref=e38] [cursor=pointer]: Customer Relationship Management (CRM)
+        - menuitem "dollar-circle Billing & Financial Management" [ref=e39] [cursor=pointer]:
+          - img "dollar-circle" [ref=e40] [cursor=pointer]:
+            - img [ref=e41] [cursor=pointer]
+          - generic [ref=e43] [cursor=pointer]: Billing & Financial Management
+        - menuitem "setting System Settings" [ref=e44] [cursor=pointer]:
+          - img "setting" [ref=e45] [cursor=pointer]:
+            - img [ref=e46] [cursor=pointer]
+          - generic [ref=e48] [cursor=pointer]: System Settings
+    - img "left" [ref=e50] [cursor=pointer]:
+      - img [ref=e51] [cursor=pointer]
+  - generic [ref=e53]:
+    - banner [ref=e54]:
+      - heading "Welcome Back, CEO!" [level=3] [ref=e55]
+      - generic [ref=e56]:
+        - generic [ref=e58]:
+          - img "bell" [ref=e60] [cursor=pointer]:
+            - img [ref=e61] [cursor=pointer]
+          - superscript [ref=e63]:
+            - generic [ref=e66]: "5"
+        - img "user" [ref=e69] [cursor=pointer]:
+          - img [ref=e70] [cursor=pointer]
+    - main [ref=e72]:
+      - generic [ref=e73]:
+        - generic [ref=e75]:
+          - heading "Transportation Management System (TMS)" [level=2] [ref=e76]
+          - generic [ref=e77]: Core Functionality Blueprint
+        - generic [ref=e79]: This module is the central nervous system for all our transportation tasks. It's designed to streamline operations from order creation to final delivery, reducing costs and improving customer satisfaction.
+        - generic [ref=e80]:
+          - generic [ref=e83]:
+            - img "database" [ref=e85]:
+              - img [ref=e86]
+            - heading "Order Center" [level=3] [ref=e88]
+            - generic [ref=e89]: Manage all customer orders, from creation to completion. Track order lifecycle, manage priorities, and handle exceptions.
+          - generic [ref=e92]:
+            - img "aim" [ref=e94]:
+              - img [ref=e95]
+            - heading "Smart Dispatch Console" [level=3] [ref=e98]
+            - generic [ref=e99]: Visually assign jobs to drivers on a map and optimize routes using AI-powered algorithms for maximum efficiency.
+          - generic [ref=e102]:
+            - img "mobile" [ref=e104]:
+              - img [ref=e105]
+            - heading "Driver Mobile App" [level=3] [ref=e107]
+            - generic [ref=e108]: Drivers receive jobs, update status, and navigate via their phones. Real-time communication and GPS tracking.
+          - generic [ref=e111]:
+            - img "link" [ref=e113]:
+              - img [ref=e114]
+            - heading "Customer Tracking Portal" [level=3] [ref=e116]
+            - generic [ref=e117]: Provide clients with a link to track their shipment in real-time. Enhanced visibility and customer satisfaction.
+```

@@ -11,6 +11,7 @@ export default {
     billing: "计费",
     settings: "设置",
     viewAll: "查看全部",
+    viewDetails: "查看详情",
     details: "详情",
     edit: "编辑",
     delete: "删除",
@@ -51,7 +52,10 @@ export default {
     overdue: "逾期",
     draft: "草稿",
     published: "已发布",
-    archived: "已归档"
+    archived: "已归档",
+    orders: "订单",
+    drivers: "司机",
+    deliveries: "交付"
   },
 
   // Navigation
@@ -108,9 +112,31 @@ export default {
   // TMS
   tms: {
     title: "运输管理系统 (TMS)",
+    overviewSubtitle: "模块概览与导航",
+    overviewDescription: "我们的综合运输管理系统简化了车队运营的各个方面，从订单创建到最终交付。该模块提供了优化路线、管理司机和确保客户满意度所需的工具和洞察。",
+    orderManagement: "订单管理",
+    orderManagementDesc: "集中式订单处理和管理系统",
+    orderManagementSubtitle: "综合订单处理与管理",
+    orderManagementOverview: "我们的订单管理系统为处理客户订单提供了完整的解决方案，从初始创建到最终交付。它包括高级搜索功能、筛选选项和实时状态跟踪。",
+    orderCenter: "订单中心",
+    orderCenterDesc: "所有客户订单的集中中心，具有实时状态跟踪",
+    orderSearch: "高级搜索",
+    orderSearchDesc: "强大的搜索功能，具有多种标准和筛选器",
+    orderFiltering: "智能筛选",
+    orderFilteringDesc: "智能筛选系统，用于快速订单识别",
+    orderCreation: "订单创建",
+    orderCreationDesc: "简化的订单创建流程，具有验证功能",
+    dispatchSystem: "调度系统",
+    dispatchSystemDesc: "智能调度控制台，具有路线优化功能",
+    driverApp: "司机移动应用",
+    driverAppDesc: "司机的移动应用程序，具有实时更新",
+    trackingPortal: "客户跟踪",
+    trackingPortalDesc: "面向客户的跟踪门户，具有实时更新",
+    recentOrders: "最近订单",
+    orderDataInterface: "订单管理界面",
+    orderDataDescription: "实时订单数据和管理工具",
     coreFunctionalityBlueprint: "核心功能蓝图",
     overviewDescription: "该模块是我们所有运输任务的中枢神经系统。它旨在简化从订单创建到最终交付的操作，降低成本并提高客户满意度。",
-    orderCenter: "订单中心",
     orderCenterDesc: "管理所有客户订单的集中中心。支持各种订单类型，如LTL、FTL和最后一英里交付。允许快速搜索、筛选和状态更新。",
     smartDispatch: "智能调度控制台",
     smartDispatchDesc: "基于地图的可视化拖放界面，供调度员使用。系统将建议最高效的司机和路线，考虑交通、交付窗口和车辆容量。",
@@ -118,7 +144,6 @@ export default {
     driverMobileDesc: "为我们的司机提供简单直观的应用。他们可以接收工作详情，使用集成导航，一键更新状态，并上传交付证明(POD)照片。",
     customerTracking: "客户跟踪门户",
     customerTrackingDesc: "为每个货件自动生成唯一的跟踪链接。客户可以在地图上看到包裹的实时位置并获得准确的预计到达时间，减少查询电话。",
-    orderCenterDesc: "管理所有客户订单，从创建到完成。跟踪订单生命周期，管理优先级，处理异常情况。",
     smartDispatchDesc: "在地图上可视化分配工作给司机，使用AI算法优化路线以获得最大效率。",
     driverMobileDesc: "司机接收工作，更新状态，通过手机导航。实时通信和GPS跟踪。",
     customerTrackingDesc: "为客户提供实时跟踪货件的链接。增强可见性和客户满意度。",
@@ -134,7 +159,10 @@ export default {
     activeTrucks: "活跃卡车",
     todaysDeliveries: "今日交付",
     onTimeRate: "准时率",
-    fuelEfficiency: "燃油效率"
+    fuelEfficiency: "燃油效率",
+    activeOrders: "活跃订单",
+    activeDrivers: "活跃司机",
+    todayDeliveries: "今日交付"
   },
 
   // WMS

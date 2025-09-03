@@ -1,91 +1,252 @@
-# APONY INC. 小马物流官网
+# LogiLink Pro - Enterprise Logistics Management System
 
-## 项目简介
+A high-fidelity, interactive UI prototype for a comprehensive Logistics Management System designed for strategic presentations to executives and stakeholders.
 
-APONY INC. 小马物流官网是一个专业的海外仓服务展示网站，模仿"好仓网"（GoodCang）的设计风格，提供专业、简洁且用户友好的界面。
+## 🚀 Project Overview
 
-## 主要功能
+**LogiLink Pro** is a modern, professional-grade logistics management system prototype that showcases the potential of integrated transportation, warehousing, and supply chain management solutions. Built with React and Ant Design, this prototype demonstrates enterprise-level functionality through an intuitive and visually appealing interface.
 
-### 🚢 核心服务展示
-- **海运柜货代**：进口清关 → 预约提柜 → 卸货分拣 → 清点打板 → 分类仓储 → 预约派送
-- **商业仓储发货**：预约进仓 → 收货清点 → 打板上架 → 接单捡货 → 包装贴标 → 发货派送
-- **退货代收代发**：预约收货 → 清点检验 → 拆包换包 → 贴标换标 → 仓储上架 → 发货派送
-- **商业提送货**：熟悉各大仓库 → 无隐藏报价预约提货 → 装车清点 → 通知收货人 → 送达签收
-- **亚马逊卡派**：免费预约 → 一板起运 → 预约FBA → 预约提货 → 装车清点 → 送达签单
-- **搬运服务**：商业民宅搬运 → 评估报价无隐藏 → 配备合适车辆人员 → 安全无损搬运
+## ✨ Key Features
 
-### 🏢 公司优势
-- **公司保险**：商业责任保险，仓库保险，车辆保险，车上货物保险，过失意外错误保险
-- **仓储条件**：自营仓库，总面积6万余尺，24小时内外监控，恒温湿无异味，近高速公路
-- **派送车辆**：自营53尺Trailer，26/28尺直卡，14尺VAN，Ramp，Tailgate，E-Pallet Jack
-- **从业人员**：耐心客服，专业库管、装卸员工，大神调度、3年以上无事故AZ、DZ老司机
+### 🏠 **Dashboard**
+- Real-time statistics and KPIs
+- Interactive charts and visualizations
+- Quick action buttons for common tasks
+- Revenue tracking and performance metrics
 
-## 技术特性
+### 🚛 **Transportation Management (TMS)**
+- Order center and dispatch console
+- Real-time fleet tracking with interactive maps
+- Driver mobile app integration
+- Customer tracking portal
+- Route optimization and compliance management
 
-### 🌐 响应式设计
-- 完全适配PC、平板、手机等各类设备
-- 移动端友好的触摸交互
-- 自适应图片加载优化
+### 📦 **Warehouse Management (WMS)**
+- Inventory management and tracking
+- Smart picking and packing systems
+- Barcode and RFID integration
+- Labor management and quality control
+- Multi-warehouse support
 
-### 🎨 用户界面
-- 现代化设计风格
-- 轮播图展示核心服务
-- 中英文双语支持
-- 平滑滚动和动画效果
+### 🌍 **Freight Forwarding**
+- Ocean, air, and land freight services
+- Customs clearance and documentation
+- Global network management
+- Cost optimization and transit time tracking
+- Cargo insurance and risk management
 
-### 📱 移动端优化
-- 触摸滑动支持
-- 移动端专用导航菜单
-- 优化的移动端图片尺寸
-- 触摸友好的交互设计
+### 🚗 **Fleet Management**
+- Vehicle and driver management
+- Maintenance scheduling and tracking
+- Safety and compliance monitoring
+- Performance analytics and cost management
+- Environmental impact tracking
 
-## 文件结构
+### 👥 **Customer Relationship Management (CRM)**
+- Customer profiles and interaction history
+- Sales pipeline and lead management
+- Communication hub and activity tracking
+- Customer success and satisfaction monitoring
+- Account management and contracts
+
+### 💰 **Billing & Financial Management**
+- Automated invoice generation
+- Payment processing and tracking
+- Financial analytics and reporting
+- Collections management
+- Tax management and compliance
+
+### ⚙️ **System Settings**
+- User management and access control
+- Security and authentication settings
+- Data management and backup
+- Notification preferences
+- Regional and localization settings
+
+## 🛠️ Technology Stack
+
+- **Framework**: React 18 with Vite
+- **UI Library**: Ant Design 5
+- **Charts**: Ant Design Charts
+- **Maps**: React Leaflet with OpenStreetMap
+- **Routing**: React Router DOM
+- **Icons**: Ant Design Icons
+- **Styling**: CSS3 with custom enhancements
+
+## 📋 Prerequisites
+
+- Node.js 16+ 
+- npm or yarn package manager
+- Modern web browser with ES6+ support
+
+## 🚀 Installation & Setup
+
+### 1. Clone the Repository
+```bash
+git clone <repository-url>
+cd logilink-pro
+```
+
+### 2. Install Dependencies
+```bash
+npm install
+```
+
+### 3. Start Development Server
+```bash
+npm run dev
+```
+
+### 4. Open in Browser
+Navigate to `http://localhost:5173` in your web browser.
+
+## 🔐 Demo Access
+
+**Demo Account Credentials:**
+- Username: `admin`
+- Password: `admin123`
+
+*Note: This is a prototype - no actual authentication is performed.*
+
+## 📱 Usage Instructions
+
+### Navigation
+- Use the left sidebar to navigate between different modules
+- The sidebar is collapsible for better space utilization
+- Breadcrumb navigation shows current location
+
+### Interactive Elements
+- All buttons and menu items are clickable
+- Feature cards provide detailed descriptions
+- Maps are interactive with zoom and pan capabilities
+- Charts are responsive and hoverable
+
+### Responsive Design
+- Fully responsive design for desktop, tablet, and mobile
+- Adaptive layouts for different screen sizes
+- Touch-friendly interface for mobile devices
+
+## 🏗️ Project Structure
 
 ```
-apony/
-├── index.html          # 主页面文件
-├── logo.png            # 公司Logo
-├── wechat.png          # 微信二维码
-├── .gitignore          # Git忽略文件
-└── README.md           # 项目说明文档
+src/
+├── components/          # Reusable components
+│   └── MainLayout.jsx  # Main application layout
+├── pages/              # Page components
+│   ├── Dashboard.jsx   # Main dashboard
+│   ├── TMS.jsx         # Transportation management
+│   ├── WMS.jsx         # Warehouse management
+│   ├── Freight.jsx     # Freight forwarding
+│   ├── Fleet.jsx       # Fleet management
+│   ├── CRM.jsx         # Customer relationship management
+│   ├── Billing.jsx     # Billing and financial
+│   └── Settings.jsx    # System settings
+├── assets/             # Static assets
+├── mockData/           # Mock data for prototype
+├── App.jsx             # Main application component
+├── main.jsx            # Application entry point
+└── index.css           # Global styles
 ```
 
-## 使用方法
+## 🎨 Design Features
 
-1. 克隆仓库到本地
-2. 直接在浏览器中打开 `index.html` 文件
-3. 或者部署到Web服务器
+### Visual Design
+- Modern, clean interface following Material Design principles
+- Consistent color scheme and typography
+- Professional appearance suitable for executive presentations
+- Smooth animations and transitions
 
-## 浏览器支持
+### User Experience
+- Intuitive navigation and information architecture
+- Clear visual hierarchy and content organization
+- Responsive feedback for user interactions
+- Accessibility considerations for diverse users
 
-- Chrome (推荐)
-- Firefox
-- Safari
-- Edge
-- 移动端浏览器
+### Data Visualization
+- Interactive charts and graphs
+- Real-time data representation
+- Customizable dashboards
+- Professional reporting layouts
 
-## 联系方式
+## 🔧 Customization
 
-- **微信**：A4166660888
-- **邮箱**：op@aponyinc.com
-- **地址**：1399 Kennedy Rd, Unit 7&10, Scarborough, ON, CA M1P 2L6
-- **免费电话**：866-982-6289
-- **直线电话**：647-250-2085
+### Adding New Modules
+1. Create a new page component in `src/pages/`
+2. Add the route to `src/App.jsx`
+3. Update the navigation menu in `src/components/MainLayout.jsx`
 
-## 特色服务
+### Modifying Styles
+- Global styles are in `src/index.css`
+- Component-specific styles use inline styles or Ant Design props
+- Theme customization through Ant Design's ConfigProvider
 
-- 木箱木架包装
-- 家具及家电配送安装
-- 超大件商品配送
-- 集运分拨发货
+### Data Integration
+- Replace mock data with real API calls
+- Implement actual authentication and authorization
+- Connect to real databases and external services
 
-## 开发信息
+## 🚀 Deployment
 
-- **开发时间**：2025-01-27
-- **技术栈**：HTML5, CSS3, JavaScript
-- **设计风格**：模仿"好仓网"海外仓官网风格
-- **响应式框架**：原生CSS Grid + Flexbox
+### Build for Production
+```bash
+npm run build
+```
 
-## 许可证
+### Preview Production Build
+```bash
+npm run preview
+```
 
-© 2025 APONY INC. 小马物流. 保留所有权利.
+### Deploy to Web Server
+- Copy the `dist/` folder to your web server
+- Configure server for SPA routing (all routes should serve `index.html`)
+- Ensure HTTPS for production environments
+
+## 📊 Performance Features
+
+- Lazy loading of components and routes
+- Optimized bundle size with Vite
+- Efficient rendering with React 18
+- Responsive image loading
+- Minimal external dependencies
+
+## 🔒 Security Considerations
+
+- No sensitive data in the prototype
+- Secure coding practices implemented
+- Input validation and sanitization ready
+- Authentication system architecture prepared
+
+## 🤝 Contributing
+
+This is a prototype project, but contributions are welcome for:
+- Bug fixes and improvements
+- Additional features and modules
+- Documentation enhancements
+- Performance optimizations
+
+## 📄 License
+
+This project is created for demonstration and presentation purposes.
+
+## 📞 Support
+
+For questions or support regarding this prototype:
+- Review the code documentation
+- Check the component structure
+- Refer to Ant Design documentation for UI components
+- Review React and Vite documentation for framework details
+
+## 🎯 Future Enhancements
+
+- Real-time data integration
+- Advanced analytics and reporting
+- Mobile application development
+- API documentation and integration guides
+- Performance monitoring and optimization
+- Accessibility improvements
+- Internationalization support
+
+---
+
+**LogiLink Pro** - Transforming Logistics Management Through Technology
